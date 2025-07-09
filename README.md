@@ -35,7 +35,7 @@ This project leverages several powerful Swift packages to provide comprehensive 
 
 ### Core Dependencies
 
-- **[Neuron](https://github.com/wvabrinskas/Neuron)** (visualizer branch)
+- **[Neuron](https://github.com/wvabrinskas/Neuron)** (develop branch)
   - The core machine learning framework for building and training neural networks
   - Provides model architecture definitions and layer implementations
   - Includes specialized visualization APIs for model introspection

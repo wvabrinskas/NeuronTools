@@ -14,7 +14,7 @@ let package = Package(
                     targets: ["NeuronVisualizer"])
     ],
     dependencies: [
-      .package(url: "https://github.com/wvabrinskas/Neuron.git", branch: "visualizer"),
+      .package(url: "https://github.com/wvabrinskas/Neuron.git", branch: "develop"),
       .package(url: "https://github.com/wvabrinskas/NumSwift.git", branch: "main"),
       .package(url: "https://github.com/wvabrinskas/Logger.git", from: "1.0.6"),
       .package(url: "https://github.com/apple/swift-numerics", from: "1.0.0"),
