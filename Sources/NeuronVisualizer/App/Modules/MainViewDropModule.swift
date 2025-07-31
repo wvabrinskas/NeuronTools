@@ -37,6 +37,8 @@ final class MainViewDropModule: DropDelegate {
       let payload = NodePayload(layer: type)
       let nextNode = if type is ActivationLayer {
         DetailedActivationLayerNode(payload: payload)
+      } else if type is ConvolutionalLayer {
+        ImageVisualizationLayerNode(payload: payload)
       } else {
         DetailedLayerNode(payload: payload)
       }

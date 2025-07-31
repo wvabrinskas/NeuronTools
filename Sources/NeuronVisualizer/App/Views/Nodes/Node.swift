@@ -17,12 +17,16 @@ struct NodePayload {
   var parameters: Int
   var details: String
   var layerType: BaseLayerType
+  var weights: [Tensor]
+  var weightsSize: TensorSize
   
   init(layer: EncodingType,
        outputSize: TensorSize,
        inputSize: TensorSize,
        parameters: Int,
        details: String,
+       weights: [Tensor],
+       weightsSize: TensorSize,
        layerType: BaseLayerType = .regular) {
     self.layer = layer
     self.outputSize = outputSize
@@ -30,6 +34,8 @@ struct NodePayload {
     self.parameters = parameters
     self.details = details
     self.layerType = layerType
+    self.weights = weights
+    self.weightsSize = weightsSize
   }
   
   init(layer: Layer) {
@@ -38,6 +44,15 @@ struct NodePayload {
     self.inputSize = layer.inputSize
     self.parameters = layer.weights.shape.reduce(1, *)
     self.details = layer.details
+    self.weights = (try? layer.exportWeights()) ?? []
+    
+    if let convLayer = layer as? ConvolutionalLayer {
+      weightsSize = .init(rows: convLayer.filterSize.rows,
+                          columns: convLayer.filterSize.columns,
+                          depth: convLayer.filterCount)
+    } else {
+      weightsSize = .init()
+    }
     
     layerType = if layer is ActivationLayer {
       .activation
@@ -73,7 +88,9 @@ class BaseNode: Node {
                                              outputSize: .init(array: []),
                                              inputSize: .init(array: []),
                                              parameters: 0,
-                                             details: "")) {
+                                             details: "",
+                                             weights: .init(),
+                                             weightsSize: .init())) {
     self.payload = payload
     self.layer = payload.layer
   }
