@@ -76,13 +76,14 @@ class ImageVisualizationLayerNode: DetailedLayerNode, ImageVisualizationViewProt
     let imageAsTensor = image.asRGBTensor()
     let imageSize = TensorSize(array: imageAsTensor.shape)
         
-    let flatWeights = payload.weights.map { $0.value.map { $0.flatten() } }
+    let flatWeights = payload.weights
     
     var result: [Tensor] = []
     
-    flatWeights.forEach { filter in
+    flatWeights.forEach { filterLayer in
       var resultForImage: [[[Tensor.Scalar]]] = []
-      for imageLayer in imageAsTensor.value {
+      for (i, imageLayer) in imageAsTensor.value.enumerated() {
+        let filter = filterLayer.value[i]
         let conv2d = NumSwiftC.conv2d(signal: imageLayer,
                                       filter: filter,
                                       padding: .same,
