@@ -18,7 +18,7 @@ final class Builder {
   func build(_ data: Data) async throws -> BuilderResult {
     return try await withUnsafeThrowingContinuation { continuation in
       Task.detached(priority: .userInitiated) {
-        let network: Sequential = try JSONDecoder().decode(Sequential.self, from: data)
+        let network: Sequential = .import(data)
         network.compile()
         continuation.resume(returning: .init(description: network.debugDescription,
                                              network: network))

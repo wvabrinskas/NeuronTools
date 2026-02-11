@@ -50,8 +50,11 @@ class ImageVisualizationLayerNode: DetailedLayerNode, ImageVisualizationViewProt
     var result: [Tensor] = []
     
     payload.weights.forEach { tensor in
-      tensor.value.forEach { inner in
-        result.append(Tensor(inner))
+      
+      for d in 0..<tensor.size.depth {
+        result.append(Tensor(tensor.depthSlice(d), size: .init(rows: tensor.size.rows,
+                                                               columns: tensor.size.columns,
+                                                               depth: 1)))
       }
     }
     
@@ -81,21 +84,25 @@ class ImageVisualizationLayerNode: DetailedLayerNode, ImageVisualizationViewProt
     var result: [Tensor] = []
     
     flatWeights.forEach { filterLayer in
-      var resultForImage: [[[Tensor.Scalar]]] = []
-      for (i, imageLayer) in imageAsTensor.value.enumerated() {
-        let filter = filterLayer.value[i]
-        let conv2d = NumSwiftC.conv2d(signal: imageLayer,
-                                      filter: filter,
-                                      padding: .same,
-                                      filterSize: (payload.weightsSize.rows,
-                                                   payload.weightsSize.columns),
-                                      inputSize: (imageSize.rows,
-                                                  imageSize.columns))
+      var resultForImage: Tensor = .init([], size: imageAsTensor.size)
+      
+      for d in 0..<imageAsTensor.size.depth {
+        let filter = filterLayer.depthSlice(d)
+        let imageLayer = imageAsTensor.depthSlice(d)
         
-        resultForImage.append(conv2d)
+        let conv2d = NumSwiftFlat.conv2d(signal: imageLayer,
+                                         filter: filter,
+                                         padding: .same,
+                                         filterSize: (payload.weightsSize.rows,
+                                                      payload.weightsSize.columns),
+                                         inputSize: (imageSize.rows,
+                                                     imageSize.columns))
+        
+        let newTensor = Tensor(conv2d, size: .init(rows: imageSize.rows, columns: imageSize.columns, depth: 1))
+        resultForImage = resultForImage.concat(newTensor, axis: 2)
       }
       
-      result.append(Tensor(resultForImage))
+      result.append(resultForImage)
     }
 
     viewModel.imageSize = imageSize
@@ -223,7 +230,7 @@ private struct ImageVisualizationView: View {
   
   private func mapImage(_ image: Tensor) -> Image {
     if image.shape.last == 3 {
-      let flatValue = image.value.flatten()
+      let flatValue = Array(image.storage)
       let min = flatValue.min() ?? 0
       let max = flatValue.max() ?? 0
       
@@ -233,11 +240,7 @@ private struct ImageVisualizationView: View {
       }
     }
     
-    guard let value = image.value[safe: 0] else {
-      return Image("")
-    }
-    
-    let flatValue = value.flatten()
+    let flatValue = Array(image.storage)
     
     let min = flatValue.min() ?? 0
     let max = flatValue.max() ?? 0
