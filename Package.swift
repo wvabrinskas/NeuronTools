@@ -11,7 +11,9 @@ let package = Package(
                  .macOS(.v14)],
     products: [
         .executable(name: "Visualizer",
-                    targets: ["NeuronVisualizer"])
+                    targets: ["NeuronVisualizer"]),
+        .executable(name: "ModelPlayground",
+                    targets: ["ModelPlayground"])
     ],
     dependencies: [
       .package(url: "https://github.com/wvabrinskas/Neuron.git", branch: "develop"),
@@ -20,13 +22,27 @@ let package = Package(
       .package(url: "https://github.com/apple/swift-numerics", from: "1.0.0"),
     ],
     targets: [
+      .target(
+          name: "Shared",
+          dependencies: ["Neuron",
+                         "NumSwift"]),
         .executableTarget(
             name: "NeuronVisualizer",
             dependencies: [
               "NumSwift",
               "Logger",
               "Neuron",
+              "Shared",
               .product(name: "Numerics", package: "swift-numerics"),
             ]),
+        .executableTarget(
+            name: "ModelPlayground",
+            dependencies: [
+              "NumSwift",
+              "Logger",
+              "Neuron",
+              "Shared",
+              .product(name: "Numerics", package: "swift-numerics"),
+            ])
     ]
 )

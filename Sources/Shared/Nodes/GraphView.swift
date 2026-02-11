@@ -10,7 +10,11 @@ import Neuron
 
 public struct GraphView: View {
   let root: Node
-    
+  
+  public init(root: Node) {
+    self.root = root
+  }
+  
   public var body: some View {
     ScrollView([.horizontal, .vertical]) {
       VStack(alignment: .center, spacing: 0) {

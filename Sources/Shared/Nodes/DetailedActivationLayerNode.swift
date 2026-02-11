@@ -7,6 +7,7 @@
 
 import Neuron
 import SwiftUI
+import Shared
 
 class DetailedActivationLayerNode: BaseNode {
   private let fontSize: CGFloat = 13

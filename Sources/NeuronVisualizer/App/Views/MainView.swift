@@ -7,52 +7,14 @@
 
 import SwiftUI
 import AppKit
+import Shared
 @_spi(Visualizer) import Neuron
 
-@Observable
-final class MainViewModel: Sendable {
-  enum DropState {
-    case enter, none
-  }
-  
-  struct Loading {
-    var isLoading: Bool
-    var percentage: Double
-    
-    init(isLoading: Bool = false,
-         percentage: Double = 0.0) {
-      self.isLoading = isLoading
-      self.percentage = percentage
-    }
-  }
-  
-  var importData: Data?
-  var loading: Loading
-  var message: String
-  var dropState: DropState
-  var dashPhase: CGFloat
-  var graphView: GraphView?
-  
-  init(importData: Data? = nil,
-       loading: Loading = .init(),
-       message: String = "",
-       dropState: DropState = .none,
-       dashPhase: CGFloat = 0.0,
-       graphView: GraphView? = nil) {
-    self.importData = importData
-    self.loading = loading
-    self.message = message
-    self.dropState = dropState
-    self.dashPhase = dashPhase
-    self.graphView = graphView
-  }
-}
-
 struct MainView: View {
-  @State private var viewModel: MainViewModel
-  private var module: MainViewDropModule
+  @State private var viewModel: GraphViewModel
+  private var module: GraphViewDropModule
   
-  init(viewModel: MainViewModel, module: MainViewDropModule) {
+  init(viewModel: GraphViewModel, module: GraphViewDropModule) {
     self.viewModel = viewModel
     self.module = module
   }

@@ -9,17 +9,17 @@ import SwiftUI
 import Neuron
 
 @available(macOS 14, *)
-final class MainViewDropModule: DropDelegate {
-  let viewModel: MainViewModel
+open class GraphViewDropModule: DropDelegate {
+  public let viewModel: GraphViewModel
   private let builder: Builder
   
-  init(viewModel: MainViewModel,
+  public init(viewModel: GraphViewModel,
        builder: Builder) {
     self.viewModel = viewModel
     self.builder = builder
   }
   
-  func buildGraphView(network: Sequential) -> GraphView {
+  public func buildGraphView(network: Sequential) -> GraphView {
     let layers = network.layers
     let root: Node = BaseNode()
     var workingNode = root
@@ -90,27 +90,27 @@ final class MainViewDropModule: DropDelegate {
     
   }
   
-  func dropEntered(info: DropInfo) {
+  public func dropEntered(info: DropInfo) {
     // Triggered when an object enters the view.
     viewModel.dropState = .enter
   }
   
-  func dropExited(info: DropInfo) {
+  public func dropExited(info: DropInfo) {
     // Triggered when an object exits the view.
     viewModel.dropState = .none
   }
   
-  func dropUpdated(info: DropInfo) -> DropProposal? {
+  public func dropUpdated(info: DropInfo) -> DropProposal? {
     // Triggered when an object moves within the view.
     .none
   }
   
-  func validateDrop(info: DropInfo) -> Bool {
+  public func validateDrop(info: DropInfo) -> Bool {
     // Determines whether to accept or reject the drop.
     info.hasItemsConforming(to: [.data]) && viewModel.loading.isLoading == false
   }
   
-  func performDrop(info: DropInfo) -> Bool {
+  public func performDrop(info: DropInfo) -> Bool {
     guard viewModel.loading.isLoading == false else { return false }
     // Handles the drop when the user drops an object onto the view.
     performDrop(items: info.itemProviders(for: [.data]))

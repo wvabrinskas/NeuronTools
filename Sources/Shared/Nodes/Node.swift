@@ -10,17 +10,17 @@ import SwiftUI
 import NumSwift
 
 
-struct NodePayload {
-  var layer: EncodingType
-  var outputSize: TensorSize
-  var inputSize: TensorSize
-  var parameters: Int
-  var details: String
-  var layerType: BaseLayerType
-  var weights: [Tensor]
-  var weightsSize: TensorSize
+public struct NodePayload {
+  public var layer: EncodingType
+  public var outputSize: TensorSize
+  public var inputSize: TensorSize
+  public var parameters: Int
+  public var details: String
+  public var layerType: BaseLayerType
+  public var weights: [Tensor]
+  public var weightsSize: TensorSize
   
-  init(layer: EncodingType,
+  public init(layer: EncodingType,
        outputSize: TensorSize,
        inputSize: TensorSize,
        parameters: Int,
@@ -38,7 +38,7 @@ struct NodePayload {
     self.weightsSize = weightsSize
   }
   
-  init(layer: Layer) {
+  public init(layer: Layer) {
     self.layer = layer.encodingType
     self.outputSize = layer.outputSize
     self.inputSize = layer.inputSize
@@ -62,7 +62,7 @@ struct NodePayload {
   }
 }
 
-protocol Node: AnyObject {
+public protocol Node: AnyObject {
   var parentPoint: CGPoint? { get set }
   var point: CGPoint? { get set }
   var connections: [Node] { get set }
@@ -72,19 +72,19 @@ protocol Node: AnyObject {
   func build() -> any View
 }
 
-class BaseNode: Node {
-  var parentPoint: CGPoint?
-  var point: CGPoint?
+open class BaseNode: Node {
+  public var parentPoint: CGPoint?
+  public var point: CGPoint?
   
-  var connections: [Node] = []
-  let layer: EncodingType
-  let payload: NodePayload
+  public var connections: [Node] = []
+  public let layer: EncodingType
+  public let payload: NodePayload
   
-  func build() -> any View {
+  open func build() -> any View {
     EmptyView()
   }
 
-  required init(payload: NodePayload = .init(layer: .none,
+  public required init(payload: NodePayload = .init(layer: .none,
                                              outputSize: .init(array: []),
                                              inputSize: .init(array: []),
                                              parameters: 0,
@@ -97,11 +97,11 @@ class BaseNode: Node {
   
 }
 
-enum BaseLayerType {
+public enum BaseLayerType {
   case regular, activation
 }
 
-extension EncodingType {
+public extension EncodingType {
   var color: Color {
     switch self {
     case .leakyRelu, .relu, .sigmoid, .tanh, .swish, .selu, .softmax: Color(red: 0.2, green: 0.6, blue: 0.2)

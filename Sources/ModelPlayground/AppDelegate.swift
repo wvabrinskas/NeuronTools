@@ -8,7 +8,6 @@
 import Neuron
 import AppKit
 import SwiftUI
-import Shared
 
 @available(macOS 14, *)
 class WindowDelegate: NSObject, NSWindowDelegate {
@@ -23,13 +22,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   let window = NSWindow()
   let windowDelegate = WindowDelegate()
   
-  let mainViewModel: GraphViewModel = .init()
+  //let mainViewModel: MainViewModel = .init()
   
   func applicationDidFinishLaunching(_ notification: Notification) {
     let appMenu = NSMenuItem()
     appMenu.submenu = NSMenu()
     appMenu.submenu?.addItem(NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
-    let mainMenu = NSMenu(title: "Neuron Network Visualizer")
+    let mainMenu = NSMenu(title: "Model Playground")
     mainMenu.addItem(appMenu)
     NSApplication.shared.mainMenu = mainMenu
     
@@ -37,17 +36,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     window.setContentSize(size)
     window.styleMask = [.closable, .miniaturizable, .resizable, .titled]
     window.delegate = windowDelegate
-    window.title = "Neuron Network Visualizer"
+    window.title = "Model Playground"
       
-    let module = GraphViewDropModule(viewModel: mainViewModel,
-                                    builder: Builder())
-    
-    let view = NSHostingView(rootView: MainView(viewModel: module.viewModel,
-                                                module: module))
-    
-    view.frame = CGRect(origin: .zero, size: size)
-    view.autoresizingMask = [.height, .width]
-    window.contentView!.addSubview(view)
+//    let module = MainViewDropModule(viewModel: mainViewModel,
+//                                    builder: Builder())
+//    
+//    let view = NSHostingView(rootView: MainView(viewModel: module.viewModel,
+//                                                module: module))
+//    
+//    view.frame = CGRect(origin: .zero, size: size)
+//    view.autoresizingMask = [.height, .width]
+//    window.contentView!.addSubview(view)
     window.center()
     window.makeKeyAndOrderFront(window)
     

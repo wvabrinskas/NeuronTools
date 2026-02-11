@@ -5,21 +5,22 @@
 //  Created by William Vabrinskas on 7/30/25.
 //
 
+import AppKit
 import Neuron
 import NumSwift
 import SwiftUI
 
 @Observable
-final class ImageVisualizationViewModel {
-  var imageFilterPreview: [[Float]] = []
-  var imageDropViewModel: ImageDropViewModel
-  var imageDropModule: ImageDropModule
-  var images: [Tensor] = []
-  var showImageDrop: Bool = false
-  var showDetails: Bool = false
-  var imageSize: TensorSize
+public final class ImageVisualizationViewModel {
+  public var imageFilterPreview: [[Float]] = []
+  public var imageDropViewModel: ImageDropViewModel
+  public var imageDropModule: ImageDropModule
+  public var images: [Tensor] = []
+  public var showImageDrop: Bool = false
+  public var showDetails: Bool = false
+  public var imageSize: TensorSize
   
-  init(imageFilterPreview: [[Float]] = [],
+  public init(imageFilterPreview: [[Float]] = [],
        imageDropViewModel: ImageDropViewModel,
        imageDropModule: ImageDropModule,
        images: [Tensor] = [],
@@ -32,13 +33,13 @@ final class ImageVisualizationViewModel {
   }
 }
 
-protocol ImageVisualizationViewProtocol {
+public protocol ImageVisualizationViewProtocol {
   func previewFilters(image: NSImage?)
   func clearPreview()
   func close()
 }
 
-class ImageVisualizationLayerNode: DetailedLayerNode, ImageVisualizationViewProtocol {
+public class ImageVisualizationLayerNode: DetailedLayerNode, ImageVisualizationViewProtocol {
   private lazy var viewModel = ImageVisualizationViewModel(imageDropViewModel: imageDropViewModel,
                                                            imageDropModule: imageDropModule,
                                                            imageSize: payload.weightsSize)
@@ -67,14 +68,14 @@ class ImageVisualizationLayerNode: DetailedLayerNode, ImageVisualizationViewProt
   }
   
   @ViewBuilder
-  override func build() -> any View {
+  public override func build() -> any View {
     ImageVisualizationView(payload: payload,
                            baseView: super.build,
                            viewModel: viewModel,
                            node: self)
   }
   
-  func previewFilters(image: NSImage?) {
+  public func previewFilters(image: NSImage?) {
     guard let image else { return }
     let imageAsTensor = image.asRGBTensor()
     let imageSize = TensorSize(array: imageAsTensor.shape)
@@ -110,7 +111,7 @@ class ImageVisualizationLayerNode: DetailedLayerNode, ImageVisualizationViewProt
     close()
   }
 
-  func clearPreview() {
+  public func clearPreview() {
     viewModel.imageSize = payload.weightsSize
     viewModel.imageDropViewModel.loading = .init()
     viewModel.imageDropViewModel.dropState = .none
@@ -118,7 +119,7 @@ class ImageVisualizationLayerNode: DetailedLayerNode, ImageVisualizationViewProt
     viewModel.images = images
   }
   
-  func close() {
+  public func close() {
     viewModel.showImageDrop = false
     viewModel.showDetails = true
   }

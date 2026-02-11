@@ -8,11 +8,11 @@
 import Neuron
 import SwiftUI
 
-class DetailedLayerNode: BaseNode {
+public class DetailedLayerNode: BaseNode {
   private let fontSize: CGFloat = 13
   
   @ViewBuilder
-  override func build() -> any View {
+  public override func build() -> any View {
     VStack(alignment: .center, spacing: 0) {
       // Layer type header
       Text(getLayerTitle())

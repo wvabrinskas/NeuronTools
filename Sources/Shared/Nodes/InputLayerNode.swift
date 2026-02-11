@@ -7,6 +7,7 @@
 
 import Neuron
 import SwiftUI
+import Shared
 
 @available(macOS 14, *)
 class InputLayerNode: BaseNode {

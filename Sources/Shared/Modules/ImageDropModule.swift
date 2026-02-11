@@ -9,21 +9,21 @@ import SwiftUI
 import Neuron
 
 @available(macOS 14, *)
-final class ImageDropModule: DropDelegate {
-  let viewModel: ImageDropViewModel
+public final class ImageDropModule: DropDelegate {
+  public let viewModel: ImageDropViewModel
   
-  init(viewModel: ImageDropViewModel) {
+  public init(viewModel: ImageDropViewModel) {
     self.viewModel = viewModel
   }
   
-  func build(_ data: Data?) {
+  public func build(_ data: Data?) {
     guard let data else { return }
     let image = NSImage(data: data)
     viewModel.image = image
     clean()
   }
   
-  func performDrop(items: [NSItemProvider]) {
+  public func performDrop(items: [NSItemProvider]) {
     viewModel.message.removeAll()
     
     guard let data = items.first else { return }
@@ -43,28 +43,28 @@ final class ImageDropModule: DropDelegate {
   }
   
   // MARK: DropDelegate
-  func dropEntered(info: DropInfo) {
+  public func dropEntered(info: DropInfo) {
     // Triggered when an object enters the view.#imageLiteral(resourceName: "1_10_bulbasaur.png")
     viewModel.dropState = .enter
   }
   
-  func dropExited(info: DropInfo) {
+  public func dropExited(info: DropInfo) {
     // Triggered when an object exits the view.
     viewModel.dropState = .none
     viewModel.loading = .init()
   }
   
-  func dropUpdated(info: DropInfo) -> DropProposal? {
+  public func dropUpdated(info: DropInfo) -> DropProposal? {
     // Triggered when an object moves within the view.
     .none
   }
   
-  func validateDrop(info: DropInfo) -> Bool {
+  public func validateDrop(info: DropInfo) -> Bool {
     // Determines whether to accept or reject the drop.
     info.hasItemsConforming(to: [.image]) && viewModel.loading.isLoading == false
   }
   
-  func performDrop(info: DropInfo) -> Bool {
+  public func performDrop(info: DropInfo) -> Bool {
     // Handles the drop when the user drops an object onto the view.
     performDrop(items: info.itemProviders(for: [.image]))
     return info.hasItemsConforming(to: [.image])
