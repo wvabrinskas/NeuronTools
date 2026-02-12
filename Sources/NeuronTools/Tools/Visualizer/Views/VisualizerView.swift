@@ -11,7 +11,7 @@ import SwiftUI
 struct VisualizerView: View {
   @State private var viewModel = GraphViewModel()
   @State private var module: GraphViewDropModule?
-
+  
   var body: some View {
     content
       .onAppear {
@@ -20,7 +20,7 @@ struct VisualizerView: View {
         }
       }
   }
-
+  
   @ViewBuilder
   private var content: some View {
     if let module {

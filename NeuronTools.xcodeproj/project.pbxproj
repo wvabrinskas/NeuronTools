@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,7 @@
 		8A4D6C089357AF4612CCEFD4 /* ImageDropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050C5101DF037260F0624AED /* ImageDropView.swift */; };
 		8A67C25EA11E8202779CB71B /* ModelPlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31376B7E21DA34F200AE78 /* ModelPlaygroundView.swift */; };
 		9112ED8D81106C8EE39E92E4 /* NeuronToolsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EA22931E3BB30FC77EDBDF /* NeuronToolsApp.swift */; };
+		9133B6C82F3E17C900F7D0A5 /* SeededRandomNumberGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9133B6C72F3E17C900F7D0A5 /* SeededRandomNumberGenerator.swift */; };
 		9AB0CEDB21152A2ACB8C90BD /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DC444CA08182E297018577 /* Builder.swift */; };
 		AF8F96BD6C1250965A191778 /* LauncherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402CBEDBBB947EADC8B9A620 /* LauncherView.swift */; };
 		B89ABC4EE48D679A98AE73ED /* Numerics in Frameworks */ = {isa = PBXBuildFile; productRef = 6894DA24D67798910C074554 /* Numerics */; };
@@ -40,6 +41,7 @@
 		748C98397BF1EA837FB8FD13 /* DetailedActivationLayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedActivationLayerNode.swift; sourceTree = "<group>"; };
 		8745FF3651F6453E173BB3C8 /* VisualizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizerView.swift; sourceTree = "<group>"; };
 		89F443F25EA65562F621401E /* GraphViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewModel.swift; sourceTree = "<group>"; };
+		9133B6C72F3E17C900F7D0A5 /* SeededRandomNumberGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeededRandomNumberGenerator.swift; sourceTree = "<group>"; };
 		965FFCCD3FA3887EFFD570EF /* NeuronTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeuronTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1EA22931E3BB30FC77EDBDF /* NeuronToolsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuronToolsApp.swift; sourceTree = "<group>"; };
 		B1F5A9E047FC6B95E7BC9042 /* ToolDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolDefinition.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 		19C76003606C7F539F3CC833 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				9133B6C72F3E17C900F7D0A5 /* SeededRandomNumberGenerator.swift */,
 				EC2423A1DB9E57F52EB55019 /* NSImage+Extensions.swift */,
 			);
 			path = Utilities;
@@ -87,8 +90,6 @@
 			isa = PBXGroup;
 			children = (
 				402CBEDBBB947EADC8B9A620 /* LauncherView.swift */,
-				5A31376B7E21DA34F200AE78 /* ModelPlaygroundView.swift */,
-				8745FF3651F6453E173BB3C8 /* VisualizerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -136,6 +137,47 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
+		9133B6BF2F3E15D000F7D0A5 /* ModelPlayground */ = {
+			isa = PBXGroup;
+			children = (
+				9133B6C32F3E15FD00F7D0A5 /* Views */,
+			);
+			path = ModelPlayground;
+			sourceTree = "<group>";
+		};
+		9133B6C02F3E15D700F7D0A5 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				9133B6C42F3E160500F7D0A5 /* Visualizer */,
+				9133B6BF2F3E15D000F7D0A5 /* ModelPlayground */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		9133B6C32F3E15FD00F7D0A5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5A31376B7E21DA34F200AE78 /* ModelPlaygroundView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9133B6C42F3E160500F7D0A5 /* Visualizer */ = {
+			isa = PBXGroup;
+			children = (
+				9133B6C52F3E160D00F7D0A5 /* Views */,
+			);
+			path = Visualizer;
+			sourceTree = "<group>";
+		};
+		9133B6C52F3E160D00F7D0A5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8745FF3651F6453E173BB3C8 /* VisualizerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		98B146CA6337FEDBECCECD8F /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +197,7 @@
 		DDF572EE81EF85EE304A973D /* NeuronTools */ = {
 			isa = PBXGroup;
 			children = (
+				9133B6C02F3E15D700F7D0A5 /* Tools */,
 				EAF0106CE68B5898E33D68D8 /* Info.plist */,
 				D03DE0F41EF97487E370DA0F /* App */,
 				98B146CA6337FEDBECCECD8F /* Models */,
@@ -215,7 +258,6 @@
 				596E79F2B02920D9710A8A49 /* XCRemoteSwiftPackageReference "NumSwift" */,
 				0622AA4310071A56B4A5755E /* XCRemoteSwiftPackageReference "swift-numerics" */,
 			);
-			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -234,6 +276,7 @@
 				869DC47A71C627741795F0D0 /* DetailedLayerNode.swift in Sources */,
 				382DFF831EBBCE85D9BD033D /* GraphView.swift in Sources */,
 				1B0D0AA30CC6B37443F90BC4 /* GraphViewDropModule.swift in Sources */,
+				9133B6C82F3E17C900F7D0A5 /* SeededRandomNumberGenerator.swift in Sources */,
 				312A83320A198983BAFA395C /* GraphViewModel.swift in Sources */,
 				024B12E7DE608BD6C8DD91B5 /* ImageDropModule.swift in Sources */,
 				8A4D6C089357AF4612CCEFD4 /* ImageDropView.swift in Sources */,

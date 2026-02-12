@@ -9,17 +9,17 @@ import SwiftUI
 
 struct LauncherView: View {
   @Environment(\.openWindow) private var openWindow
-
+  
   var body: some View {
     VStack(spacing: 24) {
-      Text("NeuronTools")
+      Text("Neuron Toolkit")
         .font(.largeTitle)
         .bold()
-
+      
       Text("Select a tool to get started")
         .font(.subheadline)
         .foregroundStyle(.secondary)
-
+      
       HStack(spacing: 20) {
         ForEach(ToolDefinition.allTools) { tool in
           Button {
@@ -32,6 +32,7 @@ struct LauncherView: View {
                 .font(.headline)
               Text(tool.description)
                 .font(.caption)
+                .lineLimit(2)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
             }
@@ -42,5 +43,11 @@ struct LauncherView: View {
       }
     }
     .padding(40)
+  }
+}
+
+struct LauynchronousView_Previews: PreviewProvider {
+  static var previews: some View {
+    LauncherView()
   }
 }

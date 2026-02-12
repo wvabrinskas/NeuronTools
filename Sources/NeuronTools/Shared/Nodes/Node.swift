@@ -9,7 +9,6 @@ import SwiftUI
 @_spi(Visualizer) import Neuron
 import NumSwift
 
-
 struct NodePayload {
   var layer: EncodingType
   var outputSize: TensorSize
@@ -63,6 +62,8 @@ struct NodePayload {
 }
 
 protocol Node: AnyObject {
+  var id: UUID { get }
+  var details: String { get }
   var parentPoint: CGPoint? { get set }
   var point: CGPoint? { get set }
   var connections: [Node] { get set }
@@ -75,6 +76,8 @@ protocol Node: AnyObject {
 class BaseNode: Node {
   var parentPoint: CGPoint?
   var point: CGPoint?
+  let id = UUID()
+  let details: String
 
   var connections: [Node] = []
   let layer: EncodingType
@@ -91,6 +94,7 @@ class BaseNode: Node {
                                              details: "",
                                              weights: .init(),
                                              weightsSize: .init())) {
+    self.details = payload.layer.rawValue
     self.payload = payload
     self.layer = payload.layer
   }
@@ -113,8 +117,21 @@ extension EncodingType {
     case .maxPool, .avgPool: Color(red: 0.9, green: 0.6, blue: 0.2)
     case .reshape: Color(red: 0.8, green: 0.6, blue: 0.8)
     case .lstm, .embedding: Color(red: 0.6, green: 0.4, blue: 0.8)
-      default: Color(red: 0.5, green: 0.5, blue: 0.5)
+    case .globalAvgPool: Color(red: 0.9, green: 0.3, blue: 0.3)
+    case .resNet: Color(red: 0.3, green: 0.7, blue: 0.3)
+    default: Color(red: 0.5, green: 0.5, blue: 0.5)
     }
   }
 
 }
+
+extension Color {
+  static func random(seed: UInt64) -> Color {
+    Color(
+      red: .randomIn(0...1, seed: seed).num,
+      green: .randomIn(0...1, seed: seed + UInt64(2e2)).num,
+      blue: .randomIn(0...1, seed: seed + UInt64(2e4)).num
+    )
+  }
+}
+
