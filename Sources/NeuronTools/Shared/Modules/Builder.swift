@@ -8,15 +8,15 @@
 import Foundation
 @_spi(Visualizer) import Neuron
 
-public struct BuilderResult {
-  public var description: String
-  public var network: Sequential
+struct BuilderResult {
+  var description: String
+  var network: Sequential
 }
 
-public final class Builder {
-  public init() {}
-  
-  public func build(_ data: Data) async throws -> BuilderResult {
+final class Builder {
+  init() {}
+
+  func build(_ data: Data) async throws -> BuilderResult {
     return try await withUnsafeThrowingContinuation { continuation in
       Task.detached(priority: .userInitiated) {
         let network: Sequential = .import(data)

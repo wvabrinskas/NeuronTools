@@ -10,29 +10,29 @@ import AppKit
 @_spi(Visualizer) import Neuron
 
 @Observable
-public final class ImageDropViewModel: Sendable {
-  public enum DropState {
+final class ImageDropViewModel: Sendable {
+  enum DropState {
     case enter, none
   }
-  
-  public struct Loading {
-    public var isLoading: Bool
-    public var percentage: Double
-    
-    public init(isLoading: Bool = false,
+
+  struct Loading {
+    var isLoading: Bool
+    var percentage: Double
+
+    init(isLoading: Bool = false,
          percentage: Double = 0.0) {
       self.isLoading = isLoading
       self.percentage = percentage
     }
   }
-  
-  public var loading: Loading
-  public var message: String
-  public var dropState: DropState
-  public var dashPhase: CGFloat
-  public var image: NSImage?
-  
-  public init(image: NSImage? = nil,
+
+  var loading: Loading
+  var message: String
+  var dropState: DropState
+  var dashPhase: CGFloat
+  var image: NSImage?
+
+  init(image: NSImage? = nil,
        loading: Loading = .init(),
        message: String = "",
        dropState: DropState = .none,
@@ -45,16 +45,16 @@ public final class ImageDropViewModel: Sendable {
   }
 }
 
-public struct ImageDropView: View {
+struct ImageDropView: View {
   @State private var viewModel: ImageDropViewModel
   private var module: ImageDropModule
-  
-  public init(viewModel: ImageDropViewModel, module: ImageDropModule) {
+
+  init(viewModel: ImageDropViewModel, module: ImageDropModule) {
     self.viewModel = viewModel
     self.module = module
   }
-  
-  public var body: some View {
+
+  var body: some View {
     VStack {
       if viewModel.loading.isLoading {
         ProgressView()

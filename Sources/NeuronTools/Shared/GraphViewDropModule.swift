@@ -9,21 +9,21 @@ import SwiftUI
 import Neuron
 
 @available(macOS 14, *)
-open class GraphViewDropModule: DropDelegate {
-  public let viewModel: GraphViewModel
+class GraphViewDropModule: DropDelegate {
+  let viewModel: GraphViewModel
   private let builder: Builder
-  
-  public init(viewModel: GraphViewModel,
+
+  init(viewModel: GraphViewModel,
        builder: Builder) {
     self.viewModel = viewModel
     self.builder = builder
   }
-  
-  public func buildGraphView(network: Sequential) -> GraphView {
+
+  func buildGraphView(network: Sequential) -> GraphView {
     let layers = network.layers
     let root: Node = BaseNode()
     var workingNode = root
-    
+
     // Add input layer
     if let firstLayer = layers.first {
       let inputPayload = NodePayload(layer: firstLayer)
@@ -31,7 +31,7 @@ open class GraphViewDropModule: DropDelegate {
       workingNode.connections.append(inputNode)
       workingNode = inputNode
     }
-    
+
     // Add all other layers
     layers.forEach { type in
       let payload = NodePayload(layer: type)
@@ -42,31 +42,31 @@ open class GraphViewDropModule: DropDelegate {
       } else {
         DetailedLayerNode(payload: payload)
       }
-      
+
       workingNode.connections.append(nextNode)
       workingNode = nextNode
     }
-    
+
     return .init(root: root)
   }
-  
+
   func build(_ data: Data?) async throws {
     guard let data else { return }
-    
+
     let buildResult = try await builder.build(data)
-    
+
     viewModel.message = buildResult.description
     viewModel.graphView = buildGraphView(network: buildResult.network)
 
     clean()
   }
-  
+
   func performDrop(items: [NSItemProvider]) {
     viewModel.message.removeAll()
     viewModel.graphView = nil
-    
+
     guard let data = items.first else { return }
-    
+
     let _ = data.loadDataRepresentation(for: .data) { data, error in
       self.viewModel.loading.isLoading = true
       Task { @MainActor in
@@ -78,39 +78,39 @@ open class GraphViewDropModule: DropDelegate {
       }
     }
   }
-  
+
   private func clean() {
     viewModel.importData = nil
     viewModel.loading = .init()
   }
-  
+
   // MARK: DropDelegate
-  
+
   func onBuildComplete() {
-    
+
   }
-  
-  public func dropEntered(info: DropInfo) {
+
+  func dropEntered(info: DropInfo) {
     // Triggered when an object enters the view.
     viewModel.dropState = .enter
   }
-  
-  public func dropExited(info: DropInfo) {
+
+  func dropExited(info: DropInfo) {
     // Triggered when an object exits the view.
     viewModel.dropState = .none
   }
-  
-  public func dropUpdated(info: DropInfo) -> DropProposal? {
+
+  func dropUpdated(info: DropInfo) -> DropProposal? {
     // Triggered when an object moves within the view.
     .none
   }
-  
-  public func validateDrop(info: DropInfo) -> Bool {
+
+  func validateDrop(info: DropInfo) -> Bool {
     // Determines whether to accept or reject the drop.
     info.hasItemsConforming(to: [.data]) && viewModel.loading.isLoading == false
   }
-  
-  public func performDrop(info: DropInfo) -> Bool {
+
+  func performDrop(info: DropInfo) -> Bool {
     guard viewModel.loading.isLoading == false else { return false }
     // Handles the drop when the user drops an object onto the view.
     performDrop(items: info.itemProviders(for: [.data]))

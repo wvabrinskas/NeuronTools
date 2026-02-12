@@ -10,46 +10,46 @@ import Neuron
 import Foundation
 import Cocoa
 
-public extension Float {
+extension Float {
   var bytes: [UInt8] {
     withUnsafeBytes(of: self, Array.init)
   }
 }
 
-public extension NSImage {
-  
+extension NSImage {
+
   struct PixelData {
     var a: UInt8
     var r: UInt8
     var g: UInt8
     var b: UInt8
   }
-  
+
   func asGrayScaleTensor(zeroCenter: Bool = false) -> Tensor {
     guard let pixelData = cgImage(forProposedRect: nil, context: nil, hints: nil)?.dataProvider?.data else { return Tensor() }
 
     let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
-    
+
     var width: CGFloat = 0
     var height: CGFloat = 0
-    
+
     representations.forEach { rep in
       width = max(CGFloat(rep.pixelsWide), width)
       height = max(CGFloat(rep.pixelsHigh), height)
     }
-    
+
     var grayArray: [Tensor.Scalar] = []
 
     for y in 0..<Int(height) {
       for x in 0..<Int(width) {
         let pos = CGPoint(x: x, y: y)
-        
+
         let pixelInfo: Int = ((Int(width) * Int(pos.y) * 4) + Int(pos.x) * 4)
-        
+
         let r = Tensor.Scalar(data[pixelInfo])
         let g = Tensor.Scalar(data[pixelInfo + 1])
         let b = Tensor.Scalar(data[pixelInfo + 2])
-        
+
         var gray = (r + g + b) / 3
 
         if zeroCenter {
@@ -57,18 +57,18 @@ public extension NSImage {
         } else {
           gray = gray / 255.0
         }
-        
+
         grayArray.append(gray)
       }
     }
-    
+
     return Tensor([grayArray.reshape(columns: Int(width))])
   }
-  
+
   func asRGBATensor(zeroCenter: Bool = false) -> Tensor {
     guard let pixelData = cgImage(forProposedRect: nil, context: nil, hints: nil)?.dataProvider?.data else { return Tensor() }
     let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
-    
+
     var rArray: [Tensor.Scalar] = []
     var gArray: [Tensor.Scalar] = []
     var bArray: [Tensor.Scalar] = []
@@ -76,18 +76,18 @@ public extension NSImage {
 
     var width: CGFloat = 0
     var height: CGFloat = 0
-    
+
     representations.forEach { rep in
       width = max(CGFloat(rep.pixelsWide), width)
       height = max(CGFloat(rep.pixelsHigh), height)
     }
-    
+
     for y in 0..<Int(height) {
       for x in 0..<Int(width) {
         let pos = CGPoint(x: x, y: y)
-        
+
         let pixelInfo: Int = ((Int(width) * Int(pos.y) * 4) + Int(pos.x) * 4)
-        
+
         var r = Tensor.Scalar(data[pixelInfo])
         var g = Tensor.Scalar(data[pixelInfo + 1])
         var b = Tensor.Scalar(data[pixelInfo + 2])
@@ -104,51 +104,51 @@ public extension NSImage {
           b = b / 255.0
           a = a / 255.0
         }
-        
+
         rArray.append(r)
         gArray.append(g)
         bArray.append(b)
         aArray.append(a)
       }
     }
-    
+
     let rawPixels = [rArray.reshape(columns: Int(width)),
                      gArray.reshape(columns: Int(width)),
                      bArray.reshape(columns: Int(width)),
                      aArray.reshape(columns: Int(width))]
-    
+
     return Tensor(rawPixels)
   }
-  
-  
+
+
   func asRGBTensor(zeroCenter: Bool = false) -> Tensor {
     guard let pixelData = cgImage(forProposedRect: nil, context: nil, hints: nil)?.dataProvider?.data else {
       return Tensor()
     }
     let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
-    
+
     var rArray: [Tensor.Scalar] = []
     var gArray: [Tensor.Scalar] = []
     var bArray: [Tensor.Scalar] = []
-    
+
     var width: CGFloat = 0
     var height: CGFloat = 0
-    
+
     representations.forEach { rep in
       width = max(CGFloat(rep.pixelsWide), width)
       height = max(CGFloat(rep.pixelsHigh), height)
     }
-    
+
     for y in 0..<Int(height) {
       for x in 0..<Int(width) {
         let pos = CGPoint(x: x, y: y)
-        
+
         let pixelInfo: Int = ((Int(width) * Int(pos.y) * 4) + Int(pos.x) * 4)
-        
+
         var r = Tensor.Scalar(data[pixelInfo])
         var g = Tensor.Scalar(data[pixelInfo + 1])
         var b = Tensor.Scalar(data[pixelInfo + 2])
-        
+
         if zeroCenter {
           r = (r - 127.5) / 127.5
           g = (g - 127.5) / 127.5
@@ -158,33 +158,33 @@ public extension NSImage {
           g = g / 255.0
           b = b / 255.0
         }
-        
+
         rArray.append(r)
         gArray.append(g)
         bArray.append(b)
       }
     }
-    
+
     let rawPixels = [rArray.reshape(columns: Int(width)),
                      gArray.reshape(columns: Int(width)),
                      bArray.reshape(columns: Int(width))]
-    
+
     return Tensor(rawPixels)
   }
-  
+
   func asPixels() -> [PixelData] {
     var returnPixels = [PixelData]()
-    
+
     guard let pixelData = self.cgImage(forProposedRect: nil, context: nil, hints: nil)?.dataProvider?.data else { return [] }
-    
+
     let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
-    
+
     for y in 0..<Int(self.size.height) {
       for x in 0..<Int(self.size.width) {
         let pos = CGPoint(x: x, y: y)
-        
+
         let pixelInfo: Int = ((Int(self.size.width) * Int(pos.y) * 4) + Int(pos.x) * 4)
-        
+
         let r = data[pixelInfo]
         let g = data[pixelInfo + 1]
         let b = data[pixelInfo + 2]
@@ -194,20 +194,20 @@ public extension NSImage {
     }
     return returnPixels
   }
-  
+
   static func from(_ pixels: [Float], size: (Int, Int)) -> NSImage? {
     let data: [UInt8] = pixels.map { UInt8(ceil(Double($0.isNaN ? 0 : $0) * 255)) }
-    
+
     guard data.count >= 8 else {
       print("data too small")
       return nil
     }
-    
+
     let width  = size.0
     let height = size.1
-    
+
     let colorSpace = CGColorSpaceCreateDeviceGray()
-    
+
     guard data.count >= width * height,
           let context = CGContext(data: nil,
                                   width: width,
@@ -220,24 +220,24 @@ public extension NSImage {
     else {
       return nil
     }
-    
+
     for index in 0 ..< width * height {
       buffer[index] = data[index]
     }
-    
+
     let image = context.makeImage().flatMap { NSImage(cgImage: $0, size: NSSize(width: CGFloat(width),
                                                                                 height: CGFloat(height))) }
-    
+
     return image
   }
-  
+
   static func rawPixelsToPixelData(pixels: [UInt8], size: (width: Int, height: Int)) -> [PixelData] {
     guard pixels.isEmpty == false else { return [] }
-    
+
     var pData: [PixelData] = []
-    
+
     let stride = ((size.width * size.height) - 1)
-    
+
     for i in 0..<Int(size.width * size.height) {
       let redP = pixels[i]
       let greenP = pixels[i + stride]
@@ -245,35 +245,35 @@ public extension NSImage {
       let pixelData = PixelData(a: 255, r: redP, g: greenP, b: blueP)
       pData.append(pixelData)
     }
-    
+
     return pData
-    
+
   }
-  
+
   static func colorImage(_ pixels: [Float], size: (width: Int, height: Int), containsAlpha: Bool = false)-> NSImage? {
     let adjustedPixels: [UInt8] = pixels.map { UInt8(ceil(Double($0.isNaN ? 0 : $0) * 255)) }
-    
+
     let pixelData = rawPixelsToPixelData(pixels: adjustedPixels, size: size)
-    
+
     let width  = size.0
     let height = size.1
-    
+
     guard width > 0 && height > 0 else { return nil }
-    
+
     let pixelDataSize = MemoryLayout<PixelData>.size
     assert(pixelDataSize == 4)
-    
+
     let data: Data = pixelData.withUnsafeBufferPointer {
       return Data(buffer: $0)
     }
-    
+
     let cfdata = NSData(data: data) as CFData
     let provider: CGDataProvider! = CGDataProvider(data: cfdata)
     if provider == nil {
       print("CGDataProvider is not supposed to be nil")
       return nil
     }
-    
+
     let cgimage: CGImage! = CGImage(
       width: width,
       height: height,
@@ -291,7 +291,7 @@ public extension NSImage {
       print("CGImage is not supposed to be nil")
       return nil
     }
-    
+
     return NSImage(cgImage: cgimage, size: CGSize(width: width, height: height))
   }
 }

@@ -7,11 +7,10 @@
 
 import Neuron
 import SwiftUI
-import Shared
 
 class DetailedActivationLayerNode: BaseNode {
   private let fontSize: CGFloat = 13
-  
+
   @ViewBuilder
   override func build() -> any View {
     Text(layer.rawValue.uppercased())

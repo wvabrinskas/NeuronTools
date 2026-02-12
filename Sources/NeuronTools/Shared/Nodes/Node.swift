@@ -10,17 +10,17 @@ import SwiftUI
 import NumSwift
 
 
-public struct NodePayload {
-  public var layer: EncodingType
-  public var outputSize: TensorSize
-  public var inputSize: TensorSize
-  public var parameters: Int
-  public var details: String
-  public var layerType: BaseLayerType
-  public var weights: [Tensor]
-  public var weightsSize: TensorSize
-  
-  public init(layer: EncodingType,
+struct NodePayload {
+  var layer: EncodingType
+  var outputSize: TensorSize
+  var inputSize: TensorSize
+  var parameters: Int
+  var details: String
+  var layerType: BaseLayerType
+  var weights: [Tensor]
+  var weightsSize: TensorSize
+
+  init(layer: EncodingType,
        outputSize: TensorSize,
        inputSize: TensorSize,
        parameters: Int,
@@ -37,15 +37,15 @@ public struct NodePayload {
     self.weights = weights
     self.weightsSize = weightsSize
   }
-  
-  public init(layer: Layer) {
+
+  init(layer: Layer) {
     self.layer = layer.encodingType
     self.outputSize = layer.outputSize
     self.inputSize = layer.inputSize
     self.parameters = layer.weights.shape.reduce(1, *)
     self.details = layer.details
     self.weights = (try? layer.exportWeights()) ?? []
-    
+
     if let convLayer = layer as? ConvolutionalLayer {
       weightsSize = .init(rows: convLayer.filterSize.rows,
                           columns: convLayer.filterSize.columns,
@@ -53,7 +53,7 @@ public struct NodePayload {
     } else {
       weightsSize = .init()
     }
-    
+
     layerType = if layer is ActivationLayer {
       .activation
     } else {
@@ -62,29 +62,29 @@ public struct NodePayload {
   }
 }
 
-public protocol Node: AnyObject {
+protocol Node: AnyObject {
   var parentPoint: CGPoint? { get set }
   var point: CGPoint? { get set }
   var connections: [Node] { get set }
   init(payload: NodePayload)
-  
+
   @ViewBuilder
   func build() -> any View
 }
 
-open class BaseNode: Node {
-  public var parentPoint: CGPoint?
-  public var point: CGPoint?
-  
-  public var connections: [Node] = []
-  public let layer: EncodingType
-  public let payload: NodePayload
-  
-  open func build() -> any View {
+class BaseNode: Node {
+  var parentPoint: CGPoint?
+  var point: CGPoint?
+
+  var connections: [Node] = []
+  let layer: EncodingType
+  let payload: NodePayload
+
+  func build() -> any View {
     EmptyView()
   }
 
-  public required init(payload: NodePayload = .init(layer: .none,
+  required init(payload: NodePayload = .init(layer: .none,
                                              outputSize: .init(array: []),
                                              inputSize: .init(array: []),
                                              parameters: 0,
@@ -94,14 +94,14 @@ open class BaseNode: Node {
     self.payload = payload
     self.layer = payload.layer
   }
-  
+
 }
 
-public enum BaseLayerType {
+enum BaseLayerType {
   case regular, activation
 }
 
-public extension EncodingType {
+extension EncodingType {
   var color: Color {
     switch self {
     case .leakyRelu, .relu, .sigmoid, .tanh, .swish, .selu, .softmax: Color(red: 0.2, green: 0.6, blue: 0.2)
@@ -116,5 +116,5 @@ public extension EncodingType {
       default: Color(red: 0.5, green: 0.5, blue: 0.5)
     }
   }
-  
+
 }
