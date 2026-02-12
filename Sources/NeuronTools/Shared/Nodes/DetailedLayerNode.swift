@@ -10,7 +10,7 @@ import SwiftUI
 
 class DetailedLayerNode: BaseNode {
   private let fontSize: CGFloat = 13
-  
+
   @ViewBuilder
   override func build() -> any View {
     VStack(alignment: .center, spacing: 0) {
@@ -20,14 +20,14 @@ class DetailedLayerNode: BaseNode {
         .foregroundColor(.white)
         .frame(maxWidth: .infinity)
         .padding(.vertical, 6)
-      
+
       // Layer details
       VStack(alignment: .center, spacing: 6) {
         Text(getLayerDetails())
           .font(.system(size: fontSize))
           .foregroundColor(.primary)
           .multilineTextAlignment(.leading)
-        
+
         // Parameters if available
         if let paramCount = getParameterCount() {
           Text("Parameters: \(paramCount)")
@@ -35,7 +35,7 @@ class DetailedLayerNode: BaseNode {
             .bold()
             .foregroundColor(.primary)
         }
-        
+
       }
       .padding(.horizontal, 16)
       .padding(.vertical, 12)
@@ -48,19 +48,19 @@ class DetailedLayerNode: BaseNode {
         .fill(layer.color)
     )
   }
-  
+
   private func getLayerTitle() -> String {
     layer.rawValue.uppercased()
   }
-  
+
   private func getLayerDetails() -> String {
     payload.details
   }
-  
+
   private func getParameterCount() -> String? {
     payload.parameters.description
   }
-  
+
   private func formatTensorSize(_ size: TensorSize) -> String {
     let array = size.asArray
     if array.count <= 1 {
@@ -68,7 +68,7 @@ class DetailedLayerNode: BaseNode {
     }
     return array.map(String.init).joined(separator: "×")
   }
-  
+
   private func isOutputLayer() -> Bool {
     // Check if this is likely an output layer (no connections or specific characteristics)
     return connections.isEmpty

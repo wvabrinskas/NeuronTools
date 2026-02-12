@@ -1,0 +1,492 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		024B12E7DE608BD6C8DD91B5 /* ImageDropModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F895F598135785693E38D477 /* ImageDropModule.swift */; };
+		069FCD35B9CE2A897EF604E8 /* InputLayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6CAEFC3307FB3FF377C9EC /* InputLayerNode.swift */; };
+		07BB1A27062FC294E4A69E4A /* ToolDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F5A9E047FC6B95E7BC9042 /* ToolDefinition.swift */; };
+		1B0D0AA30CC6B37443F90BC4 /* GraphViewDropModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E86A2F805E4BAE9EF7DD97 /* GraphViewDropModule.swift */; };
+		312A83320A198983BAFA395C /* GraphViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F443F25EA65562F621401E /* GraphViewModel.swift */; };
+		316C16E125B5C41528F25EEC /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EA4B8C35CA70BEB2D86A85 /* Node.swift */; };
+		382DFF831EBBCE85D9BD033D /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13C1306CED2048B15E55295 /* GraphView.swift */; };
+		5D876D305D0D45D804ECE49B /* DetailedActivationLayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C98397BF1EA837FB8FD13 /* DetailedActivationLayerNode.swift */; };
+		869DC47A71C627741795F0D0 /* DetailedLayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42194846783E2358C1D2377F /* DetailedLayerNode.swift */; };
+		8A4D6C089357AF4612CCEFD4 /* ImageDropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050C5101DF037260F0624AED /* ImageDropView.swift */; };
+		8A67C25EA11E8202779CB71B /* ModelPlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31376B7E21DA34F200AE78 /* ModelPlaygroundView.swift */; };
+		9112ED8D81106C8EE39E92E4 /* NeuronToolsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EA22931E3BB30FC77EDBDF /* NeuronToolsApp.swift */; };
+		9AB0CEDB21152A2ACB8C90BD /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DC444CA08182E297018577 /* Builder.swift */; };
+		AF8F96BD6C1250965A191778 /* LauncherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402CBEDBBB947EADC8B9A620 /* LauncherView.swift */; };
+		B89ABC4EE48D679A98AE73ED /* Numerics in Frameworks */ = {isa = PBXBuildFile; productRef = 6894DA24D67798910C074554 /* Numerics */; };
+		C0B05326883CD936CADED994 /* NSImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2423A1DB9E57F52EB55019 /* NSImage+Extensions.swift */; };
+		CAC7BE7B5983E3220B6B882A /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = 250AAE4E7F3F3BC120E440DB /* Logger */; };
+		CB897A1BD688FD658AA23B1E /* Neuron in Frameworks */ = {isa = PBXBuildFile; productRef = 71EDCDD951EBFB1D59DEA00C /* Neuron */; };
+		E2E3745717030D907A01B126 /* ImageVisualizationLayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E9F824375954B08382CCEF /* ImageVisualizationLayerNode.swift */; };
+		EF4049404DD308AD13B7C5F6 /* VisualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8745FF3651F6453E173BB3C8 /* VisualizerView.swift */; };
+		EFE6F721E18177AC13B60CCA /* NumSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4AE5BAC685A5C1B40D0B72DB /* NumSwift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		050C5101DF037260F0624AED /* ImageDropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDropView.swift; sourceTree = "<group>"; };
+		402CBEDBBB947EADC8B9A620 /* LauncherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauncherView.swift; sourceTree = "<group>"; };
+		42194846783E2358C1D2377F /* DetailedLayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedLayerNode.swift; sourceTree = "<group>"; };
+		5A31376B7E21DA34F200AE78 /* ModelPlaygroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPlaygroundView.swift; sourceTree = "<group>"; };
+		6F6CAEFC3307FB3FF377C9EC /* InputLayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputLayerNode.swift; sourceTree = "<group>"; };
+		72EA4B8C35CA70BEB2D86A85 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		748C98397BF1EA837FB8FD13 /* DetailedActivationLayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedActivationLayerNode.swift; sourceTree = "<group>"; };
+		8745FF3651F6453E173BB3C8 /* VisualizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizerView.swift; sourceTree = "<group>"; };
+		89F443F25EA65562F621401E /* GraphViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewModel.swift; sourceTree = "<group>"; };
+		965FFCCD3FA3887EFFD570EF /* NeuronTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeuronTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1EA22931E3BB30FC77EDBDF /* NeuronToolsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuronToolsApp.swift; sourceTree = "<group>"; };
+		B1F5A9E047FC6B95E7BC9042 /* ToolDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolDefinition.swift; sourceTree = "<group>"; };
+		B7E9F824375954B08382CCEF /* ImageVisualizationLayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageVisualizationLayerNode.swift; sourceTree = "<group>"; };
+		D13C1306CED2048B15E55295 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		D8E86A2F805E4BAE9EF7DD97 /* GraphViewDropModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewDropModule.swift; sourceTree = "<group>"; };
+		D9DC444CA08182E297018577 /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
+		EAF0106CE68B5898E33D68D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		EC2423A1DB9E57F52EB55019 /* NSImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+Extensions.swift"; sourceTree = "<group>"; };
+		F895F598135785693E38D477 /* ImageDropModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDropModule.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AC9AA04C10659CE2C1B3A223 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB897A1BD688FD658AA23B1E /* Neuron in Frameworks */,
+				EFE6F721E18177AC13B60CCA /* NumSwift in Frameworks */,
+				CAC7BE7B5983E3220B6B882A /* Logger in Frameworks */,
+				B89ABC4EE48D679A98AE73ED /* Numerics in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		07043D9964E596BA4B6B2CF2 = {
+			isa = PBXGroup;
+			children = (
+				DDF572EE81EF85EE304A973D /* NeuronTools */,
+				422C0803F9DA34BCE707BE02 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		19C76003606C7F539F3CC833 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				EC2423A1DB9E57F52EB55019 /* NSImage+Extensions.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		2BE8D8FED7273DF57B038D78 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				402CBEDBBB947EADC8B9A620 /* LauncherView.swift */,
+				5A31376B7E21DA34F200AE78 /* ModelPlaygroundView.swift */,
+				8745FF3651F6453E173BB3C8 /* VisualizerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2EDE5F6E064088CD5CE2FFAB /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				D9DC444CA08182E297018577 /* Builder.swift */,
+				F895F598135785693E38D477 /* ImageDropModule.swift */,
+				050C5101DF037260F0624AED /* ImageDropView.swift */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		422C0803F9DA34BCE707BE02 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				965FFCCD3FA3887EFFD570EF /* NeuronTools.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		44A870CD79CD3A18502E626A /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				748C98397BF1EA837FB8FD13 /* DetailedActivationLayerNode.swift */,
+				42194846783E2358C1D2377F /* DetailedLayerNode.swift */,
+				D13C1306CED2048B15E55295 /* GraphView.swift */,
+				B7E9F824375954B08382CCEF /* ImageVisualizationLayerNode.swift */,
+				6F6CAEFC3307FB3FF377C9EC /* InputLayerNode.swift */,
+				72EA4B8C35CA70BEB2D86A85 /* Node.swift */,
+			);
+			path = Nodes;
+			sourceTree = "<group>";
+		};
+		907C1E43065A40A49FAAE0BC /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D8E86A2F805E4BAE9EF7DD97 /* GraphViewDropModule.swift */,
+				89F443F25EA65562F621401E /* GraphViewModel.swift */,
+				2EDE5F6E064088CD5CE2FFAB /* Modules */,
+				44A870CD79CD3A18502E626A /* Nodes */,
+				19C76003606C7F539F3CC833 /* Utilities */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		98B146CA6337FEDBECCECD8F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B1F5A9E047FC6B95E7BC9042 /* ToolDefinition.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D03DE0F41EF97487E370DA0F /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A1EA22931E3BB30FC77EDBDF /* NeuronToolsApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		DDF572EE81EF85EE304A973D /* NeuronTools */ = {
+			isa = PBXGroup;
+			children = (
+				EAF0106CE68B5898E33D68D8 /* Info.plist */,
+				D03DE0F41EF97487E370DA0F /* App */,
+				98B146CA6337FEDBECCECD8F /* Models */,
+				907C1E43065A40A49FAAE0BC /* Shared */,
+				2BE8D8FED7273DF57B038D78 /* Views */,
+			);
+			name = NeuronTools;
+			path = Sources/NeuronTools;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		920AC19AC2FC22DD140621A4 /* NeuronTools */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 42355311F965A3D4DCA132A6 /* Build configuration list for PBXNativeTarget "NeuronTools" */;
+			buildPhases = (
+				B82D58DE204FEAED00E720D0 /* Sources */,
+				AC9AA04C10659CE2C1B3A223 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NeuronTools;
+			packageProductDependencies = (
+				71EDCDD951EBFB1D59DEA00C /* Neuron */,
+				4AE5BAC685A5C1B40D0B72DB /* NumSwift */,
+				250AAE4E7F3F3BC120E440DB /* Logger */,
+				6894DA24D67798910C074554 /* Numerics */,
+			);
+			productName = NeuronTools;
+			productReference = 965FFCCD3FA3887EFFD570EF /* NeuronTools.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BBA1929F9580BA786814B1F9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+			};
+			buildConfigurationList = CC586D44E75B61661B76955D /* Build configuration list for PBXProject "NeuronTools" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 07043D9964E596BA4B6B2CF2;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B84F10030E8D6328E24E9A11 /* XCRemoteSwiftPackageReference "Logger" */,
+				C907DFC5CB2EB6BCE0709B36 /* XCRemoteSwiftPackageReference "Neuron" */,
+				596E79F2B02920D9710A8A49 /* XCRemoteSwiftPackageReference "NumSwift" */,
+				0622AA4310071A56B4A5755E /* XCRemoteSwiftPackageReference "swift-numerics" */,
+			);
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				920AC19AC2FC22DD140621A4 /* NeuronTools */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B82D58DE204FEAED00E720D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AB0CEDB21152A2ACB8C90BD /* Builder.swift in Sources */,
+				5D876D305D0D45D804ECE49B /* DetailedActivationLayerNode.swift in Sources */,
+				869DC47A71C627741795F0D0 /* DetailedLayerNode.swift in Sources */,
+				382DFF831EBBCE85D9BD033D /* GraphView.swift in Sources */,
+				1B0D0AA30CC6B37443F90BC4 /* GraphViewDropModule.swift in Sources */,
+				312A83320A198983BAFA395C /* GraphViewModel.swift in Sources */,
+				024B12E7DE608BD6C8DD91B5 /* ImageDropModule.swift in Sources */,
+				8A4D6C089357AF4612CCEFD4 /* ImageDropView.swift in Sources */,
+				E2E3745717030D907A01B126 /* ImageVisualizationLayerNode.swift in Sources */,
+				069FCD35B9CE2A897EF604E8 /* InputLayerNode.swift in Sources */,
+				AF8F96BD6C1250965A191778 /* LauncherView.swift in Sources */,
+				8A67C25EA11E8202779CB71B /* ModelPlaygroundView.swift in Sources */,
+				C0B05326883CD936CADED994 /* NSImage+Extensions.swift in Sources */,
+				9112ED8D81106C8EE39E92E4 /* NeuronToolsApp.swift in Sources */,
+				316C16E125B5C41528F25EEC /* Node.swift in Sources */,
+				07BB1A27062FC294E4A69E4A /* ToolDefinition.swift in Sources */,
+				EF4049404DD308AD13B7C5F6 /* VisualizerView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		63F84464AB1D673FB72A339D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		89F61BEA8A9AD6D531271018 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		9620B8C84A2D656B782EA907 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Sources/NeuronTools/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wvabrinskas.NeuronTools;
+				PRODUCT_NAME = NeuronTools;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.10;
+			};
+			name = Release;
+		};
+		9F3A4AEDA63FBC472DDE88E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Sources/NeuronTools/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wvabrinskas.NeuronTools;
+				PRODUCT_NAME = NeuronTools;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.10;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		42355311F965A3D4DCA132A6 /* Build configuration list for PBXNativeTarget "NeuronTools" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F3A4AEDA63FBC472DDE88E2 /* Debug */,
+				9620B8C84A2D656B782EA907 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		CC586D44E75B61661B76955D /* Build configuration list for PBXProject "NeuronTools" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63F84464AB1D673FB72A339D /* Debug */,
+				89F61BEA8A9AD6D531271018 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0622AA4310071A56B4A5755E /* XCRemoteSwiftPackageReference "swift-numerics" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-numerics";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		596E79F2B02920D9710A8A49 /* XCRemoteSwiftPackageReference "NumSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/wvabrinskas/NumSwift.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		B84F10030E8D6328E24E9A11 /* XCRemoteSwiftPackageReference "Logger" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/wvabrinskas/Logger.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.6;
+			};
+		};
+		C907DFC5CB2EB6BCE0709B36 /* XCRemoteSwiftPackageReference "Neuron" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/wvabrinskas/Neuron.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		250AAE4E7F3F3BC120E440DB /* Logger */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B84F10030E8D6328E24E9A11 /* XCRemoteSwiftPackageReference "Logger" */;
+			productName = Logger;
+		};
+		4AE5BAC685A5C1B40D0B72DB /* NumSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 596E79F2B02920D9710A8A49 /* XCRemoteSwiftPackageReference "NumSwift" */;
+			productName = NumSwift;
+		};
+		6894DA24D67798910C074554 /* Numerics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0622AA4310071A56B4A5755E /* XCRemoteSwiftPackageReference "swift-numerics" */;
+			productName = Numerics;
+		};
+		71EDCDD951EBFB1D59DEA00C /* Neuron */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C907DFC5CB2EB6BCE0709B36 /* XCRemoteSwiftPackageReference "Neuron" */;
+			productName = Neuron;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = BBA1929F9580BA786814B1F9 /* Project object */;
+}

@@ -8,19 +8,23 @@
 import SwiftUI
 import Neuron
 
-public struct GraphView: View {
+struct GraphView: View {
   let root: Node
-    
-  public var body: some View {
+
+  init(root: Node) {
+    self.root = root
+  }
+
+  var body: some View {
     ScrollView([.horizontal, .vertical]) {
       VStack(alignment: .center, spacing: 0) {
         let layers = collectLayers(node: root)
         ForEach(0..<layers.count, id: \.self) { i in
           let layer = layers[i]
-          
+
           // Layer block
           AnyView(layer.build())
-          
+
           // Arrow pointing down (except for last layer)
           if i < layers.count - 1 {
             Image(systemName: "arrow.down")
@@ -29,7 +33,7 @@ public struct GraphView: View {
               .padding(.vertical, 8)
           }
         }
-        
+
         // Network Summary footer
         VStack(alignment: .center, spacing: 8) {
           Text("Network Summary")
@@ -38,7 +42,7 @@ public struct GraphView: View {
             .frame(maxWidth: .infinity)
             .padding(.vertical, 12)
             .background(Color(red: 0.3, green: 0.5, blue: 0.8))
-          
+
           VStack(alignment: .leading, spacing: 4) {
             let totalParams = calculateTotalParameters(layers: layers)
             Text("Total Parameters: \(totalParams)")
@@ -67,20 +71,20 @@ public struct GraphView: View {
       .padding()
     }
   }
-  
+
   func collectLayers(node: Node) -> [Node] {
     var layers: [Node] = []
     var currentNode: Node? = node
-    
+
     while let node = currentNode {
       layers.append(node)
       // Move to first connection (assuming sequential network)
       currentNode = node.connections.first
     }
-    
+
     return layers
   }
-  
+
   func calculateTotalParameters(layers: [Node]) -> String {
     // This is a simplified calculation - in practice you'd sum actual layer parameters
     var total = 0
@@ -91,21 +95,21 @@ public struct GraphView: View {
     }
     return formatNumber(total)
   }
-  
+
   func getInputShape(layers: [Node]) -> String {
     guard layers.count > 1, let firstLayer = layers[1] as? BaseNode else {
       return "Unknown"
     }
     return formatTensorSize(firstLayer.payload.inputSize)
   }
-  
+
   func getOutputClasses(layers: [Node]) -> String {
     guard let lastLayer = layers.last as? BaseNode else {
       return "Unknown"
     }
     return formatTensorSize(lastLayer.payload.outputSize)
   }
-  
+
   func formatTensorSize(_ size: TensorSize) -> String {
     let array = size.asArray
     if array.count <= 1 {
@@ -113,7 +117,7 @@ public struct GraphView: View {
     }
     return array.map(String.init).joined(separator: "×")
   }
-  
+
   func formatNumber(_ number: Int) -> String {
     let formatter = NumberFormatter()
     formatter.numberStyle = .decimal

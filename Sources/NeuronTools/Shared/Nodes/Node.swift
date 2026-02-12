@@ -19,7 +19,7 @@ struct NodePayload {
   var layerType: BaseLayerType
   var weights: [Tensor]
   var weightsSize: TensorSize
-  
+
   init(layer: EncodingType,
        outputSize: TensorSize,
        inputSize: TensorSize,
@@ -37,7 +37,7 @@ struct NodePayload {
     self.weights = weights
     self.weightsSize = weightsSize
   }
-  
+
   init(layer: Layer) {
     self.layer = layer.encodingType
     self.outputSize = layer.outputSize
@@ -45,7 +45,7 @@ struct NodePayload {
     self.parameters = layer.weights.shape.reduce(1, *)
     self.details = layer.details
     self.weights = (try? layer.exportWeights()) ?? []
-    
+
     if let convLayer = layer as? ConvolutionalLayer {
       weightsSize = .init(rows: convLayer.filterSize.rows,
                           columns: convLayer.filterSize.columns,
@@ -53,7 +53,7 @@ struct NodePayload {
     } else {
       weightsSize = .init()
     }
-    
+
     layerType = if layer is ActivationLayer {
       .activation
     } else {
@@ -67,7 +67,7 @@ protocol Node: AnyObject {
   var point: CGPoint? { get set }
   var connections: [Node] { get set }
   init(payload: NodePayload)
-  
+
   @ViewBuilder
   func build() -> any View
 }
@@ -75,11 +75,11 @@ protocol Node: AnyObject {
 class BaseNode: Node {
   var parentPoint: CGPoint?
   var point: CGPoint?
-  
+
   var connections: [Node] = []
   let layer: EncodingType
   let payload: NodePayload
-  
+
   func build() -> any View {
     EmptyView()
   }
@@ -94,7 +94,7 @@ class BaseNode: Node {
     self.payload = payload
     self.layer = payload.layer
   }
-  
+
 }
 
 enum BaseLayerType {
@@ -116,5 +116,5 @@ extension EncodingType {
       default: Color(red: 0.5, green: 0.5, blue: 0.5)
     }
   }
-  
+
 }

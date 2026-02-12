@@ -14,24 +14,24 @@ final class ImageDropViewModel: Sendable {
   enum DropState {
     case enter, none
   }
-  
+
   struct Loading {
     var isLoading: Bool
     var percentage: Double
-    
+
     init(isLoading: Bool = false,
          percentage: Double = 0.0) {
       self.isLoading = isLoading
       self.percentage = percentage
     }
   }
-  
+
   var loading: Loading
   var message: String
   var dropState: DropState
   var dashPhase: CGFloat
   var image: NSImage?
-  
+
   init(image: NSImage? = nil,
        loading: Loading = .init(),
        message: String = "",
@@ -48,12 +48,12 @@ final class ImageDropViewModel: Sendable {
 struct ImageDropView: View {
   @State private var viewModel: ImageDropViewModel
   private var module: ImageDropModule
-  
+
   init(viewModel: ImageDropViewModel, module: ImageDropModule) {
     self.viewModel = viewModel
     self.module = module
   }
-  
+
   var body: some View {
     VStack {
       if viewModel.loading.isLoading {
