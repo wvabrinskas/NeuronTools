@@ -10,8 +10,8 @@
 		024B12E7DE608BD6C8DD91B5 /* ImageDropModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F895F598135785693E38D477 /* ImageDropModule.swift */; };
 		069FCD35B9CE2A897EF604E8 /* InputLayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6CAEFC3307FB3FF377C9EC /* InputLayerNode.swift */; };
 		07BB1A27062FC294E4A69E4A /* ToolDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F5A9E047FC6B95E7BC9042 /* ToolDefinition.swift */; };
-		1B0D0AA30CC6B37443F90BC4 /* GraphViewDropModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E86A2F805E4BAE9EF7DD97 /* GraphViewDropModule.swift */; };
-		312A83320A198983BAFA395C /* GraphViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F443F25EA65562F621401E /* GraphViewModel.swift */; };
+		1B0D0AA30CC6B37443F90BC4 /* ModelDropModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E86A2F805E4BAE9EF7DD97 /* ModelDropModule.swift */; };
+		312A83320A198983BAFA395C /* ModelDropViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F443F25EA65562F621401E /* ModelDropViewModel.swift */; };
 		316C16E125B5C41528F25EEC /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EA4B8C35CA70BEB2D86A85 /* Node.swift */; };
 		382DFF831EBBCE85D9BD033D /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13C1306CED2048B15E55295 /* GraphView.swift */; };
 		5D876D305D0D45D804ECE49B /* DetailedActivationLayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C98397BF1EA837FB8FD13 /* DetailedActivationLayerNode.swift */; };
@@ -20,6 +20,17 @@
 		8A67C25EA11E8202779CB71B /* ModelPlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31376B7E21DA34F200AE78 /* ModelPlaygroundView.swift */; };
 		9112ED8D81106C8EE39E92E4 /* NeuronToolsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EA22931E3BB30FC77EDBDF /* NeuronToolsApp.swift */; };
 		9133B6C82F3E17C900F7D0A5 /* SeededRandomNumberGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9133B6C72F3E17C900F7D0A5 /* SeededRandomNumberGenerator.swift */; };
+		9133B6CA2F3E7B7400F7D0A5 /* SVGExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9133B6C92F3E7B7400F7D0A5 /* SVGExporter.swift */; };
+		9133B6E42F3FD07600F7D0A5 /* DragModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9133B6E32F3FD07600F7D0A5 /* DragModelView.swift */; };
+		9133B6E72F3FD1C600F7D0A5 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9133B6E62F3FD1C600F7D0A5 /* CardView.swift */; };
+		9133B6E92F3FD7C500F7D0A5 /* PNGExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9133B6E82F3FD7C500F7D0A5 /* PNGExporter.swift */; };
+		9133B6ED2F4146E100F7D0A5 /* QuantizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9133B6EB2F4146E100F7D0A5 /* QuantizerView.swift */; };
+		9156790C2F42A60300178D7B /* DropdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9156790B2F42A5FF00178D7B /* DropdownView.swift */; };
+		915679132F42C4C000178D7B /* ModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915679122F42C4C000178D7B /* ModelType.swift */; };
+		915679152F42C4CB00178D7B /* ClassifierTypeParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915679142F42C4CB00178D7B /* ClassifierTypeParameters.swift */; };
+		915679172F43B77F00178D7B /* NumberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915679162F43B77F00178D7B /* NumberTextField.swift */; };
+		915679192F43B78E00178D7B /* LabeledNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915679182F43B78E00178D7B /* LabeledNumberField.swift */; };
+		915679242F43F1FC00178D7B /* ClassifierResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915679232F43F1F800178D7B /* ClassifierResultView.swift */; };
 		9AB0CEDB21152A2ACB8C90BD /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DC444CA08182E297018577 /* Builder.swift */; };
 		AF8F96BD6C1250965A191778 /* LauncherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402CBEDBBB947EADC8B9A620 /* LauncherView.swift */; };
 		B89ABC4EE48D679A98AE73ED /* Numerics in Frameworks */ = {isa = PBXBuildFile; productRef = 6894DA24D67798910C074554 /* Numerics */; };
@@ -40,14 +51,25 @@
 		72EA4B8C35CA70BEB2D86A85 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		748C98397BF1EA837FB8FD13 /* DetailedActivationLayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedActivationLayerNode.swift; sourceTree = "<group>"; };
 		8745FF3651F6453E173BB3C8 /* VisualizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizerView.swift; sourceTree = "<group>"; };
-		89F443F25EA65562F621401E /* GraphViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewModel.swift; sourceTree = "<group>"; };
+		89F443F25EA65562F621401E /* ModelDropViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDropViewModel.swift; sourceTree = "<group>"; };
 		9133B6C72F3E17C900F7D0A5 /* SeededRandomNumberGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeededRandomNumberGenerator.swift; sourceTree = "<group>"; };
+		9133B6C92F3E7B7400F7D0A5 /* SVGExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGExporter.swift; sourceTree = "<group>"; };
+		9133B6E32F3FD07600F7D0A5 /* DragModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragModelView.swift; sourceTree = "<group>"; };
+		9133B6E62F3FD1C600F7D0A5 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		9133B6E82F3FD7C500F7D0A5 /* PNGExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNGExporter.swift; sourceTree = "<group>"; };
+		9133B6EB2F4146E100F7D0A5 /* QuantizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantizerView.swift; sourceTree = "<group>"; };
+		9156790B2F42A5FF00178D7B /* DropdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownView.swift; sourceTree = "<group>"; };
+		915679122F42C4C000178D7B /* ModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelType.swift; sourceTree = "<group>"; };
+		915679142F42C4CB00178D7B /* ClassifierTypeParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifierTypeParameters.swift; sourceTree = "<group>"; };
+		915679162F43B77F00178D7B /* NumberTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTextField.swift; sourceTree = "<group>"; };
+		915679182F43B78E00178D7B /* LabeledNumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledNumberField.swift; sourceTree = "<group>"; };
+		915679232F43F1F800178D7B /* ClassifierResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifierResultView.swift; sourceTree = "<group>"; };
 		965FFCCD3FA3887EFFD570EF /* NeuronTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeuronTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1EA22931E3BB30FC77EDBDF /* NeuronToolsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuronToolsApp.swift; sourceTree = "<group>"; };
 		B1F5A9E047FC6B95E7BC9042 /* ToolDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolDefinition.swift; sourceTree = "<group>"; };
 		B7E9F824375954B08382CCEF /* ImageVisualizationLayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageVisualizationLayerNode.swift; sourceTree = "<group>"; };
 		D13C1306CED2048B15E55295 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
-		D8E86A2F805E4BAE9EF7DD97 /* GraphViewDropModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewDropModule.swift; sourceTree = "<group>"; };
+		D8E86A2F805E4BAE9EF7DD97 /* ModelDropModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDropModule.swift; sourceTree = "<group>"; };
 		D9DC444CA08182E297018577 /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
 		EAF0106CE68B5898E33D68D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EC2423A1DB9E57F52EB55019 /* NSImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+Extensions.swift"; sourceTree = "<group>"; };
@@ -82,6 +104,8 @@
 			children = (
 				9133B6C72F3E17C900F7D0A5 /* SeededRandomNumberGenerator.swift */,
 				EC2423A1DB9E57F52EB55019 /* NSImage+Extensions.swift */,
+				9133B6C92F3E7B7400F7D0A5 /* SVGExporter.swift */,
+				9133B6E82F3FD7C500F7D0A5 /* PNGExporter.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -128,8 +152,9 @@
 		907C1E43065A40A49FAAE0BC /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				D8E86A2F805E4BAE9EF7DD97 /* GraphViewDropModule.swift */,
-				89F443F25EA65562F621401E /* GraphViewModel.swift */,
+				9133B6E22F3FD06C00F7D0A5 /* Views */,
+				D8E86A2F805E4BAE9EF7DD97 /* ModelDropModule.swift */,
+				89F443F25EA65562F621401E /* ModelDropViewModel.swift */,
 				2EDE5F6E064088CD5CE2FFAB /* Modules */,
 				44A870CD79CD3A18502E626A /* Nodes */,
 				19C76003606C7F539F3CC833 /* Utilities */,
@@ -140,6 +165,8 @@
 		9133B6BF2F3E15D000F7D0A5 /* ModelPlayground */ = {
 			isa = PBXGroup;
 			children = (
+				915679142F42C4CB00178D7B /* ClassifierTypeParameters.swift */,
+				915679122F42C4C000178D7B /* ModelType.swift */,
 				9133B6C32F3E15FD00F7D0A5 /* Views */,
 			);
 			path = ModelPlayground;
@@ -148,6 +175,7 @@
 		9133B6C02F3E15D700F7D0A5 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				9133B6EA2F4146D000F7D0A5 /* Quantizer */,
 				9133B6C42F3E160500F7D0A5 /* Visualizer */,
 				9133B6BF2F3E15D000F7D0A5 /* ModelPlayground */,
 			);
@@ -157,6 +185,7 @@
 		9133B6C32F3E15FD00F7D0A5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				915679232F43F1F800178D7B /* ClassifierResultView.swift */,
 				5A31376B7E21DA34F200AE78 /* ModelPlaygroundView.swift */,
 			);
 			path = Views;
@@ -174,6 +203,42 @@
 			isa = PBXGroup;
 			children = (
 				8745FF3651F6453E173BB3C8 /* VisualizerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9133B6E22F3FD06C00F7D0A5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				915679182F43B78E00178D7B /* LabeledNumberField.swift */,
+				915679162F43B77F00178D7B /* NumberTextField.swift */,
+				9156790B2F42A5FF00178D7B /* DropdownView.swift */,
+				9133B6E32F3FD07600F7D0A5 /* DragModelView.swift */,
+				9133B6E52F3FD1A600F7D0A5 /* Components */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9133B6E52F3FD1A600F7D0A5 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				9133B6E62F3FD1C600F7D0A5 /* CardView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		9133B6EA2F4146D000F7D0A5 /* Quantizer */ = {
+			isa = PBXGroup;
+			children = (
+				9133B6EC2F4146E100F7D0A5 /* Views */,
+			);
+			path = Quantizer;
+			sourceTree = "<group>";
+		};
+		9133B6EC2F4146E100F7D0A5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9133B6EB2F4146E100F7D0A5 /* QuantizerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -271,13 +336,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9156790C2F42A60300178D7B /* DropdownView.swift in Sources */,
+				915679192F43B78E00178D7B /* LabeledNumberField.swift in Sources */,
+				9133B6E92F3FD7C500F7D0A5 /* PNGExporter.swift in Sources */,
+				9133B6E42F3FD07600F7D0A5 /* DragModelView.swift in Sources */,
 				9AB0CEDB21152A2ACB8C90BD /* Builder.swift in Sources */,
 				5D876D305D0D45D804ECE49B /* DetailedActivationLayerNode.swift in Sources */,
 				869DC47A71C627741795F0D0 /* DetailedLayerNode.swift in Sources */,
+				915679132F42C4C000178D7B /* ModelType.swift in Sources */,
 				382DFF831EBBCE85D9BD033D /* GraphView.swift in Sources */,
-				1B0D0AA30CC6B37443F90BC4 /* GraphViewDropModule.swift in Sources */,
+				915679152F42C4CB00178D7B /* ClassifierTypeParameters.swift in Sources */,
+				9133B6CA2F3E7B7400F7D0A5 /* SVGExporter.swift in Sources */,
+				1B0D0AA30CC6B37443F90BC4 /* ModelDropModule.swift in Sources */,
+				9133B6E72F3FD1C600F7D0A5 /* CardView.swift in Sources */,
 				9133B6C82F3E17C900F7D0A5 /* SeededRandomNumberGenerator.swift in Sources */,
-				312A83320A198983BAFA395C /* GraphViewModel.swift in Sources */,
+				312A83320A198983BAFA395C /* ModelDropViewModel.swift in Sources */,
+				9133B6ED2F4146E100F7D0A5 /* QuantizerView.swift in Sources */,
 				024B12E7DE608BD6C8DD91B5 /* ImageDropModule.swift in Sources */,
 				8A4D6C089357AF4612CCEFD4 /* ImageDropView.swift in Sources */,
 				E2E3745717030D907A01B126 /* ImageVisualizationLayerNode.swift in Sources */,
@@ -286,7 +360,9 @@
 				8A67C25EA11E8202779CB71B /* ModelPlaygroundView.swift in Sources */,
 				C0B05326883CD936CADED994 /* NSImage+Extensions.swift in Sources */,
 				9112ED8D81106C8EE39E92E4 /* NeuronToolsApp.swift in Sources */,
+				915679172F43B77F00178D7B /* NumberTextField.swift in Sources */,
 				316C16E125B5C41528F25EEC /* Node.swift in Sources */,
+				915679242F43F1FC00178D7B /* ClassifierResultView.swift in Sources */,
 				07BB1A27062FC294E4A69E4A /* ToolDefinition.swift in Sources */,
 				EF4049404DD308AD13B7C5F6 /* VisualizerView.swift in Sources */,
 			);
@@ -424,7 +500,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 15.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wvabrinskas.NeuronTools;
 				PRODUCT_NAME = NeuronTools;
 				SDKROOT = macosx;
@@ -442,7 +518,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 15.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wvabrinskas.NeuronTools;
 				PRODUCT_NAME = NeuronTools;
 				SDKROOT = macosx;

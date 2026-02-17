@@ -122,7 +122,8 @@ extension NSImage {
 
 
   func asRGBTensor(zeroCenter: Bool = false) -> Tensor {
-    guard let pixelData = cgImage(forProposedRect: nil, context: nil, hints: nil)?.dataProvider?.data else {
+    guard let cgImage = cgImage(forProposedRect: nil, context: nil, hints: nil),
+          let pixelData = cgImage.dataProvider?.data else {
       return Tensor()
     }
     let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
@@ -131,19 +132,14 @@ extension NSImage {
     var gArray: [Tensor.Scalar] = []
     var bArray: [Tensor.Scalar] = []
 
-    var width: CGFloat = 0
-    var height: CGFloat = 0
+    let width = cgImage.width
+    let height = cgImage.height
+    let bytesPerRow = cgImage.bytesPerRow
+    let bytesPerPixel = cgImage.bitsPerPixel / 8
 
-    representations.forEach { rep in
-      width = max(CGFloat(rep.pixelsWide), width)
-      height = max(CGFloat(rep.pixelsHigh), height)
-    }
-
-    for y in 0..<Int(height) {
-      for x in 0..<Int(width) {
-        let pos = CGPoint(x: x, y: y)
-
-        let pixelInfo: Int = ((Int(width) * Int(pos.y) * 4) + Int(pos.x) * 4)
+    for y in 0..<height {
+      for x in 0..<width {
+        let pixelInfo = (bytesPerRow * y) + (x * bytesPerPixel)
 
         var r = Tensor.Scalar(data[pixelInfo])
         var g = Tensor.Scalar(data[pixelInfo + 1])
@@ -165,9 +161,9 @@ extension NSImage {
       }
     }
 
-    let rawPixels = [rArray.reshape(columns: Int(width)),
-                     gArray.reshape(columns: Int(width)),
-                     bArray.reshape(columns: Int(width))]
+    let rawPixels = [rArray.reshape(columns: width),
+                     gArray.reshape(columns: width),
+                     bArray.reshape(columns: width)]
 
     return Tensor(rawPixels)
   }
@@ -294,6 +290,40 @@ extension NSImage {
 
     return NSImage(cgImage: cgimage, size: CGSize(width: width, height: height))
   }
+  
+  
+  func resized(to newSize: NSSize) -> NSImage? {
+    guard let cgImage = cgImage(forProposedRect: nil, context: nil, hints: nil) else {
+      return nil
+    }
+    
+    let width = Int(newSize.width)
+    let height = Int(newSize.height)
+    let colorSpace = CGColorSpaceCreateDeviceRGB()
+    let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue)
+    
+    guard let context = CGContext(
+      data: nil,
+      width: width,
+      height: height,
+      bitsPerComponent: 8,
+      bytesPerRow: width * 4,
+      space: colorSpace,
+      bitmapInfo: bitmapInfo.rawValue
+    ) else {
+      return nil
+    }
+    
+    context.interpolationQuality = .high
+    context.draw(cgImage, in: CGRect(origin: .zero, size: newSize))
+    
+    guard let resizedCGImage = context.makeImage() else {
+      return nil
+    }
+    
+    return NSImage(cgImage: resizedCGImage, size: newSize)
+  }
+
 }
 
 #endif

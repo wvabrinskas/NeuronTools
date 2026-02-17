@@ -67,7 +67,6 @@ protocol Node: AnyObject {
   var parentPoint: CGPoint? { get set }
   var point: CGPoint? { get set }
   var connections: [Node] { get set }
-  init(payload: NodePayload)
 
   @ViewBuilder
   func build() -> any View
@@ -87,7 +86,7 @@ class BaseNode: Node {
     EmptyView()
   }
 
-  required init(payload: NodePayload = .init(layer: .none,
+  init(payload: NodePayload = .init(layer: .none,
                                              outputSize: .init(array: []),
                                              inputSize: .init(array: []),
                                              parameters: 0,
@@ -122,7 +121,45 @@ extension EncodingType {
     default: Color(red: 0.5, green: 0.5, blue: 0.5)
     }
   }
-
+  
+  var icon: String {
+    switch self {
+    case .leakyRelu, .relu: "bolt.fill"
+    case .sigmoid: "s.circle.fill"
+    case .tanh: "t.circle.fill"
+    case .swish, .selu: "waveform.path"
+    case .softmax: "chart.bar.fill"
+    case .batchNormalize, .layerNormalize: "slider.horizontal.3"
+    case .conv2d: "square.grid.3x3.fill"
+    case .transConv2d: "square.grid.3x3.topleft.filled"
+    case .dense: "circle.grid.cross.fill"
+    case .dropout: "xmark.circle.fill"
+    case .flatten: "arrow.right.to.line"
+    case .maxPool, .avgPool: "square.grid.2x2.fill"
+    case .reshape: "arrow.up.left.and.arrow.down.right"
+    case .lstm: "arrow.triangle.2.circlepath"
+    case .embedding: "textformat.abc"
+    case .globalAvgPool: "globe"
+    case .resNet: "arrow.triangle.branch"
+    default: "cube.fill"
+    }
+  }
+  
+  var categoryName: String {
+    switch self {
+    case .leakyRelu, .relu, .sigmoid, .tanh, .swish, .selu, .softmax: "Activation"
+    case .batchNormalize, .layerNormalize: "Normalization"
+    case .conv2d, .transConv2d: "Convolution"
+    case .dense: "Dense"
+    case .dropout: "Regularization"
+    case .flatten, .reshape: "Transform"
+    case .maxPool, .avgPool, .globalAvgPool: "Pooling"
+    case .lstm: "Recurrent"
+    case .embedding: "Embedding"
+    case .resNet: "Residual"
+    default: "Layer"
+    }
+  }
 }
 
 extension Color {

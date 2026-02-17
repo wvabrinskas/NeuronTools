@@ -9,14 +9,18 @@ import SwiftUI
 import Neuron
 
 @available(macOS 14, *)
-class GraphViewDropModule: DropDelegate {
-  let viewModel: GraphViewModel
+class ModelDropModule: DropDelegate {
+  let viewModel: ModelDropViewModel = .init()
   private let builder: Builder
 
-  init(viewModel: GraphViewModel,
-       builder: Builder) {
-    self.viewModel = viewModel
+  private var network: Sequential?
+  
+  init(builder: Builder) {
     self.builder = builder
+  }
+  
+  func predict(_ input: TensorBatch) -> TensorBatch? {
+    network?.predict(batch: input, context: .init())
   }
 
   func buildGraphView(network: Sequential) -> GraphView {
@@ -55,10 +59,24 @@ class GraphViewDropModule: DropDelegate {
 
     let buildResult = try await builder.build(data)
 
+    network = buildResult.network
+    
     viewModel.message = buildResult.description
     viewModel.graphView = buildGraphView(network: buildResult.network)
-
+    buildModelProperties(network: buildResult.network)
+    
     clean()
+  }
+  
+  private func buildModelProperties(network: Sequential) {
+    
+    guard let inputSize = network.layers.first?.inputSize,
+          let outputSize = network.layers.last?.outputSize else {
+      return
+    }
+    
+    viewModel.modelProperties = .init(inputSize: inputSize,
+                                      outputSize: outputSize)
   }
 
   func performDrop(items: [NSItemProvider]) {
@@ -69,6 +87,8 @@ class GraphViewDropModule: DropDelegate {
 
     let _ = data.loadDataRepresentation(for: .data) { data, error in
       self.viewModel.loading.isLoading = true
+      self.viewModel.dropState = .none
+
       Task { @MainActor in
         do {
           try await self.build(data)
@@ -82,6 +102,7 @@ class GraphViewDropModule: DropDelegate {
   private func clean() {
     viewModel.importData = nil
     viewModel.loading = .init()
+    viewModel.dropState = .none
   }
 
   // MARK: DropDelegate

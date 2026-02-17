@@ -21,6 +21,7 @@ final class Builder {
       Task.detached(priority: .userInitiated) {
         let network: Sequential = .import(data)
         network.compile()
+        network.isTraining = false
         continuation.resume(returning: .init(description: network.debugDescription,
                                              network: network))
       }

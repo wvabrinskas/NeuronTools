@@ -19,8 +19,12 @@ struct ToolDefinition: Identifiable {
           icon: "brain",
           description: "Visualize neural network architectures"),
     .init(id: "model-playground",
-          name: "Model Playground",
+          name: "Playground",
           icon: "puzzlepiece",
-          description: "Experiment with models interactively")
+          description: "Experiment with models interactively"),
+    .init(id: "quantizer",
+          name: "Quantizer",
+          icon: "number",
+          description: "Quickly quantize Neuron models")
   ]
 }

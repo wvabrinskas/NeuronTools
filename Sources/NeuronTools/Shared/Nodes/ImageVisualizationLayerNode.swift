@@ -44,8 +44,8 @@ class ImageVisualizationLayerNode: DetailedLayerNode, ImageVisualizationViewProt
                                                            imageDropModule: imageDropModule,
                                                            imageSize: payload.weightsSize)
 
-  private var imageDropViewModel = ImageDropViewModel()
-  private lazy var imageDropModule = ImageDropModule(viewModel: imageDropViewModel)
+  @State private var imageDropViewModel: ImageDropViewModel
+  private let imageDropModule: ImageDropModule
 
   lazy var images: [Tensor] = {
     var result: [Tensor] = []
@@ -62,7 +62,10 @@ class ImageVisualizationLayerNode: DetailedLayerNode, ImageVisualizationViewProt
     return result
   }()
 
-  required init(payload: NodePayload) {
+  init(payload: NodePayload, imageDropModule: ImageDropModule = .init()) {
+    self.imageDropModule = imageDropModule
+    self.imageDropViewModel = imageDropModule.viewModel
+    
     super.init(payload: payload)
     viewModel.images = images
   }

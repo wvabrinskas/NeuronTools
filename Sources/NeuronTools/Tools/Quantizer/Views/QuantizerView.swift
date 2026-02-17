@@ -8,7 +8,7 @@
 import SwiftUI
 @_spi(Visualizer) import Neuron
 
-struct VisualizerView: View {
+struct QuantizerView: View {
   @State private var viewModel: ModelDropViewModel
   @State private var module: ModelDropModule
   
@@ -25,11 +25,9 @@ struct VisualizerView: View {
       HStack {
         ScrollView {
           Text(viewModel.message)
-            .font(.system(size: 16, weight: .semibold))
-            .foregroundStyle(.primary)
+            .padding([.leading, .trailing], 8)
           Spacer()
         }
-        .padding([.leading, .trailing], 8)
         .overlay {
           if viewModel.loading.isLoading {
             ProgressView()

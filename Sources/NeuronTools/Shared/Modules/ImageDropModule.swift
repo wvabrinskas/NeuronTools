@@ -10,11 +10,7 @@ import Neuron
 
 @available(macOS 14, *)
 final class ImageDropModule: DropDelegate {
-  let viewModel: ImageDropViewModel
-
-  init(viewModel: ImageDropViewModel) {
-    self.viewModel = viewModel
-  }
+  let viewModel: ImageDropViewModel = .init()
 
   func build(_ data: Data?) {
     guard let data else { return }
@@ -34,6 +30,7 @@ final class ImageDropModule: DropDelegate {
       Task { @MainActor in
         self.build(data)
         self.viewModel.loading.isLoading = false
+        self.viewModel.dropState = .none
       }
     }
   }

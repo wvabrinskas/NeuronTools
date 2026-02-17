@@ -13,17 +13,23 @@ struct NeuronToolsApp: App {
   var body: some Scene {
     WindowGroup {
       LauncherView()
+        .frame(width: 700, height: 500)
     }
-    .defaultSize(width: 400, height: 300)
+    .windowResizability(.contentSize)
 
     Window("Visualizer", id: "visualizer") {
       VisualizerView()
     }
     .defaultSize(width: 800, height: 600)
 
-    Window("Model Playground", id: "model-playground") {
+    Window("Playground", id: "model-playground") {
       ModelPlaygroundView()
     }
-    .defaultSize(width: 480, height: 270)
+    .defaultSize(width: 700, height: 570)
+    
+    Window("Quantizer", id: "quantizer") {
+      QuantizerView()
+    }
+    .defaultSize(width: 800, height: 270)
   }
 }

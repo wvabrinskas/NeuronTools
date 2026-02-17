@@ -7,10 +7,15 @@
 
 import SwiftUI
 import Combine
+@preconcurrency import Neuron
 
+struct ModelProperties: Sendable, Equatable {
+  var inputSize: TensorSize
+  var outputSize: TensorSize
+}
 
 @Observable
-final class GraphViewModel: Sendable {
+final class ModelDropViewModel: Sendable {
   enum DropState {
     case enter, none
   }
@@ -32,18 +37,21 @@ final class GraphViewModel: Sendable {
   var dropState: DropState
   var dashPhase: CGFloat
   var graphView: GraphView?
+  var modelProperties: ModelProperties?
 
   init(importData: Data? = nil,
        loading: Loading = .init(),
        message: String = "",
        dropState: DropState = .none,
        dashPhase: CGFloat = 0.0,
-       graphView: GraphView? = nil) {
+       graphView: GraphView? = nil,
+       modelProperties: ModelProperties? = nil) {
     self.importData = importData
     self.loading = loading
     self.message = message
     self.dropState = dropState
     self.dashPhase = dashPhase
     self.graphView = graphView
+    self.modelProperties = modelProperties
   }
 }
