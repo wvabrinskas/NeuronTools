@@ -16,6 +16,9 @@ struct ModelPlaygroundView: View {
   // Classifier parameters
   @State private var classifierViewParameters: ClassifierViewParameters = .init()
   
+  // GAN Parameters
+  @State private var ganViewParameters: GANViewParameters = .init()
+  
   @State private var imageDropViewModel: ImageDropViewModel
   private let imageDropModule: ImageDropModule
   
@@ -52,9 +55,15 @@ struct ModelPlaygroundView: View {
     
         Spacer()
         
-        if selectedOption.id == ModelType.classifier.rawValue {
+        switch ModelType(rawValue: selectedOption.id)! {
+        case .gan:
+          ganParametersView
+            .animation(.spring, value: selectedOption)
+        case .classifier:
           classifierParametersView
             .animation(.spring, value: selectedOption)
+        case .rnn:
+          EmptyView()
         }
         
         Spacer()
@@ -67,7 +76,8 @@ struct ModelPlaygroundView: View {
         ProgressView()
       }
       
-      if let content = viewModelSelectedOption(), viewModel.loading.isLoading == false {
+      if let content = viewModelSelectedOption(),
+         viewModel.loading.isLoading == false {
         AnyView(content)
       }
       
@@ -114,6 +124,12 @@ struct ModelPlaygroundView: View {
                              classifierViewParameters: classifierViewParameters,
                              feedImage: feedImage)
       )
+    case .gan:
+      return AnyView(
+        GANResultView(parameters: ganViewParameters) {
+          module.generate()
+        }
+      )
     default:
       break
     }
@@ -146,6 +162,12 @@ struct ModelPlaygroundView: View {
     
     classifierViewParameters.indexOfMax = Int(indexOfMax.0 + 1)
     classifierViewParameters.confidence = indexOfMax.1
+  }
+  
+  private var ganParametersView: some View {
+    Text("Upload a generator smodel file")
+      .font(.system(size: 15, weight: .semibold))
+      .foregroundStyle(.secondary)
   }
   
   private var classifierParametersView: some View {

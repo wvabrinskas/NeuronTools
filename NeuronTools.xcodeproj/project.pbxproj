@@ -31,6 +31,8 @@
 		915679172F43B77F00178D7B /* NumberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915679162F43B77F00178D7B /* NumberTextField.swift */; };
 		915679192F43B78E00178D7B /* LabeledNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915679182F43B78E00178D7B /* LabeledNumberField.swift */; };
 		915679242F43F1FC00178D7B /* ClassifierResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915679232F43F1F800178D7B /* ClassifierResultView.swift */; };
+		915679262F43FBEC00178D7B /* GANViewParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915679252F43FBEC00178D7B /* GANViewParameters.swift */; };
+		915679282F43FC2300178D7B /* GANResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915679272F43FC1E00178D7B /* GANResultView.swift */; };
 		9AB0CEDB21152A2ACB8C90BD /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DC444CA08182E297018577 /* Builder.swift */; };
 		AF8F96BD6C1250965A191778 /* LauncherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402CBEDBBB947EADC8B9A620 /* LauncherView.swift */; };
 		B89ABC4EE48D679A98AE73ED /* Numerics in Frameworks */ = {isa = PBXBuildFile; productRef = 6894DA24D67798910C074554 /* Numerics */; };
@@ -64,6 +66,8 @@
 		915679162F43B77F00178D7B /* NumberTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTextField.swift; sourceTree = "<group>"; };
 		915679182F43B78E00178D7B /* LabeledNumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledNumberField.swift; sourceTree = "<group>"; };
 		915679232F43F1F800178D7B /* ClassifierResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifierResultView.swift; sourceTree = "<group>"; };
+		915679252F43FBEC00178D7B /* GANViewParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GANViewParameters.swift; sourceTree = "<group>"; };
+		915679272F43FC1E00178D7B /* GANResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GANResultView.swift; sourceTree = "<group>"; };
 		965FFCCD3FA3887EFFD570EF /* NeuronTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeuronTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1EA22931E3BB30FC77EDBDF /* NeuronToolsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuronToolsApp.swift; sourceTree = "<group>"; };
 		B1F5A9E047FC6B95E7BC9042 /* ToolDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolDefinition.swift; sourceTree = "<group>"; };
@@ -165,6 +169,7 @@
 		9133B6BF2F3E15D000F7D0A5 /* ModelPlayground */ = {
 			isa = PBXGroup;
 			children = (
+				915679252F43FBEC00178D7B /* GANViewParameters.swift */,
 				915679142F42C4CB00178D7B /* ClassifierTypeParameters.swift */,
 				915679122F42C4C000178D7B /* ModelType.swift */,
 				9133B6C32F3E15FD00F7D0A5 /* Views */,
@@ -185,6 +190,7 @@
 		9133B6C32F3E15FD00F7D0A5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				915679272F43FC1E00178D7B /* GANResultView.swift */,
 				915679232F43F1F800178D7B /* ClassifierResultView.swift */,
 				5A31376B7E21DA34F200AE78 /* ModelPlaygroundView.swift */,
 			);
@@ -339,11 +345,13 @@
 				9156790C2F42A60300178D7B /* DropdownView.swift in Sources */,
 				915679192F43B78E00178D7B /* LabeledNumberField.swift in Sources */,
 				9133B6E92F3FD7C500F7D0A5 /* PNGExporter.swift in Sources */,
+				915679262F43FBEC00178D7B /* GANViewParameters.swift in Sources */,
 				9133B6E42F3FD07600F7D0A5 /* DragModelView.swift in Sources */,
 				9AB0CEDB21152A2ACB8C90BD /* Builder.swift in Sources */,
 				5D876D305D0D45D804ECE49B /* DetailedActivationLayerNode.swift in Sources */,
 				869DC47A71C627741795F0D0 /* DetailedLayerNode.swift in Sources */,
 				915679132F42C4C000178D7B /* ModelType.swift in Sources */,
+				915679282F43FC2300178D7B /* GANResultView.swift in Sources */,
 				382DFF831EBBCE85D9BD033D /* GraphView.swift in Sources */,
 				915679152F42C4CB00178D7B /* ClassifierTypeParameters.swift in Sources */,
 				9133B6CA2F3E7B7400F7D0A5 /* SVGExporter.swift in Sources */,

@@ -7,6 +7,8 @@
 
 import SwiftUI
 import Neuron
+import NumSwift
+import GameKit
 
 @available(macOS 14, *)
 class ModelDropModule: DropDelegate {
@@ -21,6 +23,26 @@ class ModelDropModule: DropDelegate {
   
   func predict(_ input: TensorBatch) -> TensorBatch? {
     network?.predict(batch: input, context: .init())
+  }
+  
+  func generate() -> Image? {
+    guard let firstLayerSize = network?.layers.first?.inputSize else {
+      return nil
+    }
+    
+    // the input of a GAN generator should be the noise vector
+    let noiseCount = firstLayerSize.columns * firstLayerSize.rows * firstLayerSize.depth
+    let noise = randomInput(noiseCount: noiseCount).storage
+    let noiseTensor = Tensor(noise, size: firstLayerSize)
+    
+    guard let results = network?.predict(batch: [noiseTensor],
+                                         context: .init()).first else {
+      return nil
+    }
+    
+    let out = Array(results.storage).scale(from: -1...1, to: 0...1)
+    let image = getImage(from: out)
+    return image
   }
 
   func buildGraphView(network: Sequential) -> GraphView {
@@ -79,6 +101,19 @@ class ModelDropModule: DropDelegate {
                                       outputSize: outputSize)
   }
 
+  private func getImage(from imageData: [Tensor.Scalar]) -> Image? {
+    guard let outputSize = network?.layers.last?.outputSize else { return nil }
+    
+    if outputSize.depth == 3, let image = NSImage.colorImage(imageData, size: (outputSize.rows, outputSize.columns)) {
+      return Image(nsImage: image)
+    } else if let image = NSImage.from(imageData, size: (outputSize.rows, outputSize.columns)) {
+      // greyscale
+      return Image(nsImage: image)
+    } else {
+      return nil
+    }
+  }
+  
   func performDrop(items: [NSItemProvider]) {
     viewModel.message.removeAll()
     viewModel.graphView = nil
@@ -105,6 +140,25 @@ class ModelDropModule: DropDelegate {
     viewModel.dropState = .none
   }
 
+  private func randomInput(gaussian: Bool = false, noiseCount: Int) -> Tensor {
+    let dist = NormalDistribution(randomSource: GKARC4RandomSource(), mean: 0, deviation: 1)
+    
+    // the first layer of a GAN should be
+    
+    var randomInputAtDepth: [Float] = []
+    for _ in 0..<noiseCount {
+      var rand = Float.random(in: 0...1)
+      
+      if gaussian {
+        rand = dist.nextScalar()
+      }
+      
+      randomInputAtDepth.append(rand)
+    }
+    
+    return Tensor(randomInputAtDepth)
+  }
+  
   // MARK: DropDelegate
 
   func onBuildComplete() {
