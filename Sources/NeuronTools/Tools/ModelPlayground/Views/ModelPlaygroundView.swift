@@ -19,6 +19,9 @@ struct ModelPlaygroundView: View {
   // GAN Parameters
   @State private var ganViewParameters: GANViewParameters = .init()
   
+  // RNN Parameters
+  @State private var rnnViewParameters: RNNViewParameters = .init()
+  
   @State private var imageDropViewModel: ImageDropViewModel
   private let imageDropModule: ImageDropModule
   
@@ -32,11 +35,30 @@ struct ModelPlaygroundView: View {
     self.imageDropViewModel = imageDropModule.viewModel
   }
   
+  var dropTitle: String {
+    if ModelType(rawValue: selectedOption.id) == .rnn {
+      "Drop Neuron Models"
+    } else {
+      "Drop Neuron Model"
+    }
+  }
+  
+  var dropSubtitle: String {
+    if ModelType(rawValue: selectedOption.id) == .rnn {
+      "Drag and drop a .smodel and .stkns file"
+    } else {
+      "Drag and drop a .smodel file"
+    }
+  }
+  
+  
   var body: some View {
     VStack {
       HStack {
         VStack(alignment: .leading) {
-          DragModelView(module: module)
+          DragModelView(module: module,
+                        title: dropTitle,
+                        subtitle: dropSubtitle)
             .padding(.leading, 16)
             .padding(.top, 8)
 
@@ -63,7 +85,8 @@ struct ModelPlaygroundView: View {
           classifierParametersView
             .animation(.spring, value: selectedOption)
         case .rnn:
-          EmptyView()
+          rnnParametersView
+            .animation(.spring, value: selectedOption)
         }
         
         Spacer()
@@ -96,9 +119,14 @@ struct ModelPlaygroundView: View {
     switch type {
     case .classifier:
       handleClassifierParameters(modelProperites: modelProperties)
+    case .rnn:
+      handleRnnParameters(modelProperites: modelProperties)
     default:
       break
     }
+  }
+  
+  private func handleRnnParameters(modelProperites: ModelProperties) {
   }
   
   private func handleClassifierParameters(modelProperites: ModelProperties) {
@@ -127,14 +155,19 @@ struct ModelPlaygroundView: View {
     case .gan:
       return AnyView(
         GANResultView(parameters: ganViewParameters) {
-          module.generate()
+          ganViewParameters.generatedImage = module.generate()
         }
       )
-    default:
-      break
+    case .rnn:
+      return AnyView(
+        RNNResultView(parameters: rnnViewParameters) {
+          rnnViewParameters.generatedString = module.generateText(starting: rnnViewParameters.startingWith,
+                                                                  count: Int(rnnViewParameters.numberToGenerate) ?? 0,
+                                                                  maxLength: Int(rnnViewParameters.maxLength) ?? 0,
+                                                                  randomizeSelection: false)
+        }
+      )
     }
-    
-    return nil
   }
   
   private func feedImage(_ image: NSImage?) {
@@ -163,6 +196,8 @@ struct ModelPlaygroundView: View {
     classifierViewParameters.indexOfMax = Int(indexOfMax.0 + 1)
     classifierViewParameters.confidence = indexOfMax.1
   }
+  
+  // parameter views
   
   private var ganParametersView: some View {
     Text("Upload a generator smodel file")
@@ -194,8 +229,38 @@ struct ModelPlaygroundView: View {
     }
     .padding(16)
   }
+  
+  
+  var rnnParametersView: some View {
+    VStack(alignment: .leading, spacing: 16) {
+      // Number of classes field
+      VStack(alignment: .leading, spacing: 4) {
+        Text("Starting with")
+          .font(.system(size: 15, weight: .semibold))
+          .foregroundStyle(.secondary)
+        GenericTextField(text: $rnnViewParameters.startingWith,
+                         placeholder: "Letter",
+                         size: 150)
+      }
+      
+      // Input size fields
+      VStack(alignment: .leading, spacing: 4) {
+        Text("Generations")
+          .font(.system(size: 15, weight: .semibold))
+          .foregroundStyle(.secondary)
+        
+        HStack(spacing: 12) {
+          LabeledNumberField(label: "Count", text: $rnnViewParameters.numberToGenerate, placeholder: "28")
+          LabeledNumberField(label: "Length", text: $rnnViewParameters.maxLength, placeholder: "28")
+        }
+      }
+    }
+    .padding(16)
+  }
+  
 }
 #Preview {
   ModelPlaygroundView()
+    .rnnParametersView
     .frame(width: 700, height: 570)
 }

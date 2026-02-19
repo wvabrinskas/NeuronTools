@@ -16,6 +16,8 @@ class ModelDropModule: DropDelegate {
   private let builder: Builder
 
   private var network: Sequential?
+  private var rnn: RNN<VectorizableDataset<String>>?
+  private var rnnDataset: VectorizableDataset<String>?
   
   init(builder: Builder) {
     self.builder = builder
@@ -45,6 +47,23 @@ class ModelDropModule: DropDelegate {
     return image
   }
 
+  func generateText(starting: String,
+                    count: Int,
+                    maxLength: Int,
+                    randomizeSelection: Bool) -> String? {
+    guard let network else { return nil }
+    
+    rnn?.optimizer.trainable = network
+    
+    let out = rnn?.predict(starting: starting.nilIfEmpty,
+                           count: count,
+                           maxWordLength: maxLength,
+                           randomizeSelection: randomizeSelection,
+                           endingMark: ".").joined(separator: ", ")
+    
+    return out
+  }
+  
   func buildGraphView(network: Sequential) -> GraphView {
     let layers = network.layers
     let root: Node = BaseNode()
@@ -76,9 +95,28 @@ class ModelDropModule: DropDelegate {
     return .init(root: root)
   }
 
+  func buildTokens(_ data: Data?) async throws  {
+    guard let data, (try? JSONDecoder().decode(Vectorizer<String>.self, from: data)) != nil else {
+      return
+    }
+    
+    let tokenResult: TokenBuilderResult<String> = try await builder.buildTokens(data)
+    
+    let rnnDataset: VectorizableDataset<String> = .init(vectorizer: tokenResult.vectorizer)
+    
+    rnn = .init(dataset: rnnDataset,
+                classifierParameters: .init(batchSize: 1, epochs: 1),
+                optimizerParameters: .init(learningRate: 0.01),
+                lstmParameters: .init(hiddenUnits: 1, inputUnits: 1))
+        
+    clean()
+  }
+  
   func build(_ data: Data?) async throws {
-    guard let data else { return }
-
+    guard let data, (try? JSONDecoder().decode(Sequential.self, from: data)) != nil else {
+      return
+    }
+    
     let buildResult = try await builder.build(data)
 
     network = buildResult.network
@@ -117,21 +155,19 @@ class ModelDropModule: DropDelegate {
   func performDrop(items: [NSItemProvider]) {
     viewModel.message.removeAll()
     viewModel.graphView = nil
+    
+    for data in items {
+      let _ = data.loadDataRepresentation(for: .data) { data, error in
+        self.viewModel.loading.isLoading = true
+        self.viewModel.dropState = .none
 
-    guard let data = items.first else { return }
-
-    let _ = data.loadDataRepresentation(for: .data) { data, error in
-      self.viewModel.loading.isLoading = true
-      self.viewModel.dropState = .none
-
-      Task { @MainActor in
-        do {
+        Task { @MainActor in
           try await self.build(data)
-        } catch {
-          print(error.localizedDescription)
+          try await self.buildTokens(data)
         }
       }
     }
+   
   }
 
   private func clean() {

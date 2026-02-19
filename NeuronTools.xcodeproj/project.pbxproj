@@ -33,12 +33,15 @@
 		915679242F43F1FC00178D7B /* ClassifierResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915679232F43F1F800178D7B /* ClassifierResultView.swift */; };
 		915679262F43FBEC00178D7B /* GANViewParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915679252F43FBEC00178D7B /* GANViewParameters.swift */; };
 		915679282F43FC2300178D7B /* GANResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915679272F43FC1E00178D7B /* GANResultView.swift */; };
+		9156792A2F44048F00178D7B /* RNNResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915679292F44048F00178D7B /* RNNResultView.swift */; };
+		9156792C2F4404B300178D7B /* RNNViewParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9156792B2F4404B300178D7B /* RNNViewParameters.swift */; };
+		9192364F2F469F940045579B /* Neuron in Frameworks */ = {isa = PBXBuildFile; productRef = 9192364E2F469F940045579B /* Neuron */; };
+		919236522F46A0840045579B /* Neuron in Frameworks */ = {isa = PBXBuildFile; productRef = 919236512F46A0840045579B /* Neuron */; };
 		9AB0CEDB21152A2ACB8C90BD /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DC444CA08182E297018577 /* Builder.swift */; };
 		AF8F96BD6C1250965A191778 /* LauncherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402CBEDBBB947EADC8B9A620 /* LauncherView.swift */; };
 		B89ABC4EE48D679A98AE73ED /* Numerics in Frameworks */ = {isa = PBXBuildFile; productRef = 6894DA24D67798910C074554 /* Numerics */; };
 		C0B05326883CD936CADED994 /* NSImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2423A1DB9E57F52EB55019 /* NSImage+Extensions.swift */; };
 		CAC7BE7B5983E3220B6B882A /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = 250AAE4E7F3F3BC120E440DB /* Logger */; };
-		CB897A1BD688FD658AA23B1E /* Neuron in Frameworks */ = {isa = PBXBuildFile; productRef = 71EDCDD951EBFB1D59DEA00C /* Neuron */; };
 		E2E3745717030D907A01B126 /* ImageVisualizationLayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E9F824375954B08382CCEF /* ImageVisualizationLayerNode.swift */; };
 		EF4049404DD308AD13B7C5F6 /* VisualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8745FF3651F6453E173BB3C8 /* VisualizerView.swift */; };
 		EFE6F721E18177AC13B60CCA /* NumSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4AE5BAC685A5C1B40D0B72DB /* NumSwift */; };
@@ -68,6 +71,8 @@
 		915679232F43F1F800178D7B /* ClassifierResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifierResultView.swift; sourceTree = "<group>"; };
 		915679252F43FBEC00178D7B /* GANViewParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GANViewParameters.swift; sourceTree = "<group>"; };
 		915679272F43FC1E00178D7B /* GANResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GANResultView.swift; sourceTree = "<group>"; };
+		915679292F44048F00178D7B /* RNNResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNNResultView.swift; sourceTree = "<group>"; };
+		9156792B2F4404B300178D7B /* RNNViewParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNNViewParameters.swift; sourceTree = "<group>"; };
 		965FFCCD3FA3887EFFD570EF /* NeuronTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeuronTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1EA22931E3BB30FC77EDBDF /* NeuronToolsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuronToolsApp.swift; sourceTree = "<group>"; };
 		B1F5A9E047FC6B95E7BC9042 /* ToolDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolDefinition.swift; sourceTree = "<group>"; };
@@ -85,8 +90,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB897A1BD688FD658AA23B1E /* Neuron in Frameworks */,
+				919236522F46A0840045579B /* Neuron in Frameworks */,
 				EFE6F721E18177AC13B60CCA /* NumSwift in Frameworks */,
+				9192364F2F469F940045579B /* Neuron in Frameworks */,
 				CAC7BE7B5983E3220B6B882A /* Logger in Frameworks */,
 				B89ABC4EE48D679A98AE73ED /* Numerics in Frameworks */,
 			);
@@ -170,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				915679252F43FBEC00178D7B /* GANViewParameters.swift */,
+				9156792B2F4404B300178D7B /* RNNViewParameters.swift */,
 				915679142F42C4CB00178D7B /* ClassifierTypeParameters.swift */,
 				915679122F42C4C000178D7B /* ModelType.swift */,
 				9133B6C32F3E15FD00F7D0A5 /* Views */,
@@ -190,6 +197,7 @@
 		9133B6C32F3E15FD00F7D0A5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				915679292F44048F00178D7B /* RNNResultView.swift */,
 				915679272F43FC1E00178D7B /* GANResultView.swift */,
 				915679232F43F1F800178D7B /* ClassifierResultView.swift */,
 				5A31376B7E21DA34F200AE78 /* ModelPlaygroundView.swift */,
@@ -295,10 +303,11 @@
 			);
 			name = NeuronTools;
 			packageProductDependencies = (
-				71EDCDD951EBFB1D59DEA00C /* Neuron */,
 				4AE5BAC685A5C1B40D0B72DB /* NumSwift */,
 				250AAE4E7F3F3BC120E440DB /* Logger */,
 				6894DA24D67798910C074554 /* Numerics */,
+				9192364E2F469F940045579B /* Neuron */,
+				919236512F46A0840045579B /* Neuron */,
 			);
 			productName = NeuronTools;
 			productReference = 965FFCCD3FA3887EFFD570EF /* NeuronTools.app */;
@@ -325,9 +334,9 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				B84F10030E8D6328E24E9A11 /* XCRemoteSwiftPackageReference "Logger" */,
-				C907DFC5CB2EB6BCE0709B36 /* XCRemoteSwiftPackageReference "Neuron" */,
 				596E79F2B02920D9710A8A49 /* XCRemoteSwiftPackageReference "NumSwift" */,
 				0622AA4310071A56B4A5755E /* XCRemoteSwiftPackageReference "swift-numerics" */,
+				919236502F46A0840045579B /* XCRemoteSwiftPackageReference "Neuron" */,
 			);
 			projectDirPath = "";
 			projectRoot = "";
@@ -358,8 +367,10 @@
 				1B0D0AA30CC6B37443F90BC4 /* ModelDropModule.swift in Sources */,
 				9133B6E72F3FD1C600F7D0A5 /* CardView.swift in Sources */,
 				9133B6C82F3E17C900F7D0A5 /* SeededRandomNumberGenerator.swift in Sources */,
+				9156792C2F4404B300178D7B /* RNNViewParameters.swift in Sources */,
 				312A83320A198983BAFA395C /* ModelDropViewModel.swift in Sources */,
 				9133B6ED2F4146E100F7D0A5 /* QuantizerView.swift in Sources */,
+				9156792A2F44048F00178D7B /* RNNResultView.swift in Sources */,
 				024B12E7DE608BD6C8DD91B5 /* ImageDropModule.swift in Sources */,
 				8A4D6C089357AF4612CCEFD4 /* ImageDropView.swift in Sources */,
 				E2E3745717030D907A01B126 /* ImageVisualizationLayerNode.swift in Sources */,
@@ -574,20 +585,20 @@
 				kind = branch;
 			};
 		};
+		919236502F46A0840045579B /* XCRemoteSwiftPackageReference "Neuron" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/wvabrinskas/Neuron";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
 		B84F10030E8D6328E24E9A11 /* XCRemoteSwiftPackageReference "Logger" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/wvabrinskas/Logger.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.0.6;
-			};
-		};
-		C907DFC5CB2EB6BCE0709B36 /* XCRemoteSwiftPackageReference "Neuron" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/wvabrinskas/Neuron.git";
-			requirement = {
-				branch = develop;
-				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -608,9 +619,13 @@
 			package = 0622AA4310071A56B4A5755E /* XCRemoteSwiftPackageReference "swift-numerics" */;
 			productName = Numerics;
 		};
-		71EDCDD951EBFB1D59DEA00C /* Neuron */ = {
+		9192364E2F469F940045579B /* Neuron */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C907DFC5CB2EB6BCE0709B36 /* XCRemoteSwiftPackageReference "Neuron" */;
+			productName = Neuron;
+		};
+		919236512F46A0840045579B /* Neuron */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 919236502F46A0840045579B /* XCRemoteSwiftPackageReference "Neuron" */;
 			productName = Neuron;
 		};
 /* End XCSwiftPackageProductDependency section */
