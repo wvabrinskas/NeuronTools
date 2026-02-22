@@ -45,7 +45,7 @@ struct ModelPlaygroundView: View {
   
   var dropSubtitle: String {
     if ModelType(rawValue: selectedOption.id) == .rnn {
-      "Drag and drop a .smodel and .stkns file"
+      "Drag and drop a .smodel and .stokens file"
     } else {
       "Drag and drop a .smodel file"
     }
@@ -92,6 +92,8 @@ struct ModelPlaygroundView: View {
         Spacer()
         
       }
+      .zIndex(1)
+
       Divider()
       // other content
       

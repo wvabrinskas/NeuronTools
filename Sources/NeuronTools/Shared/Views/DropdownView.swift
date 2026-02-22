@@ -32,11 +32,11 @@ enum DropdownSize {
   var offset: CGFloat {
     switch self {
     case .small:
-      (height + (height / 10 * 8) * 2 + 16)
-    case .medium:
       (height + (height / 10 * 8) * 2 + 21)
+    case .medium:
+      (height + (height / 10 * 8) * 2 + 26)
     case .large:
-      (height + (height / 10 * 8) * 2 + 25)
+      (height + (height / 10 * 8) * 2 + 30)
     }
   }
 }
@@ -62,7 +62,6 @@ struct DropdownView: View {
   }
   
   var body: some View {
-   // ZStack(alignment: .leading) {
       DropdownCapsuleView(selectedOption: selectedOption,
                           height: size.height,
                           fontSize: size.height,
@@ -84,7 +83,15 @@ struct DropdownView: View {
               }
             }
           }
+          .padding(8)
+         .background {
+           RoundedRectangle(cornerRadius: size.height + 8, style: .continuous)
+             .foregroundStyle(Color.black.opacity(0.5))
+             .background(.ultraThinMaterial)
+             .clipShape(RoundedRectangle(cornerRadius: size.height + 8, style: .continuous))
+         }
          .offset(y: size.offset)
+
         }
       }
     .animation(.spring, value: menuOpen)
@@ -116,10 +123,10 @@ fileprivate struct DropdownCapsuleView: View {
     }
     .background(
       Capsule()
-        .fill(selectedOption.color.opacity(0.15))
+        .fill(selectedOption.color.mix(with: .black, by: 0.5))
+        .saturation(0.4)
         .frame(width: height * 9, height: height * 2)
     )
-    .opacity(isHovered ? 1 : 0.8)
     .scaleEffect(isHovered ? 1.05 : 1.0)
     .animation(.easeInOut(duration: 0.2), value: isHovered)
     .focusEffectDisabled()
