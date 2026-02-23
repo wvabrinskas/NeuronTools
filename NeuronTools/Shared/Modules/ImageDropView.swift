@@ -8,6 +8,7 @@
 import SwiftUI
 import AppKit
 @_spi(Visualizer) import Neuron
+import UniformTypeIdentifiers
 
 @Observable
 final class ImageDropViewModel: Sendable {

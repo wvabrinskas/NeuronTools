@@ -3,401 +3,145 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 63;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		024B12E7DE608BD6C8DD91B5 /* ImageDropModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F895F598135785693E38D477 /* ImageDropModule.swift */; };
-		069FCD35B9CE2A897EF604E8 /* InputLayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6CAEFC3307FB3FF377C9EC /* InputLayerNode.swift */; };
-		07BB1A27062FC294E4A69E4A /* ToolDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F5A9E047FC6B95E7BC9042 /* ToolDefinition.swift */; };
-		1B0D0AA30CC6B37443F90BC4 /* ModelDropModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E86A2F805E4BAE9EF7DD97 /* ModelDropModule.swift */; };
-		312A83320A198983BAFA395C /* ModelDropViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F443F25EA65562F621401E /* ModelDropViewModel.swift */; };
-		316C16E125B5C41528F25EEC /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EA4B8C35CA70BEB2D86A85 /* Node.swift */; };
-		382DFF831EBBCE85D9BD033D /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13C1306CED2048B15E55295 /* GraphView.swift */; };
-		5D876D305D0D45D804ECE49B /* DetailedActivationLayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C98397BF1EA837FB8FD13 /* DetailedActivationLayerNode.swift */; };
-		869DC47A71C627741795F0D0 /* DetailedLayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42194846783E2358C1D2377F /* DetailedLayerNode.swift */; };
-		8A4D6C089357AF4612CCEFD4 /* ImageDropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050C5101DF037260F0624AED /* ImageDropView.swift */; };
-		8A67C25EA11E8202779CB71B /* ModelPlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31376B7E21DA34F200AE78 /* ModelPlaygroundView.swift */; };
-		9112ED8D81106C8EE39E92E4 /* NeuronToolsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EA22931E3BB30FC77EDBDF /* NeuronToolsApp.swift */; };
-		9133B6C82F3E17C900F7D0A5 /* SeededRandomNumberGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9133B6C72F3E17C900F7D0A5 /* SeededRandomNumberGenerator.swift */; };
-		9133B6CA2F3E7B7400F7D0A5 /* SVGExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9133B6C92F3E7B7400F7D0A5 /* SVGExporter.swift */; };
-		9133B6E42F3FD07600F7D0A5 /* DragModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9133B6E32F3FD07600F7D0A5 /* DragModelView.swift */; };
-		9133B6E72F3FD1C600F7D0A5 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9133B6E62F3FD1C600F7D0A5 /* CardView.swift */; };
-		9133B6E92F3FD7C500F7D0A5 /* PNGExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9133B6E82F3FD7C500F7D0A5 /* PNGExporter.swift */; };
-		9133B6ED2F4146E100F7D0A5 /* QuantizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9133B6EB2F4146E100F7D0A5 /* QuantizerView.swift */; };
-		9156790C2F42A60300178D7B /* DropdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9156790B2F42A5FF00178D7B /* DropdownView.swift */; };
-		915679132F42C4C000178D7B /* ModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915679122F42C4C000178D7B /* ModelType.swift */; };
-		915679152F42C4CB00178D7B /* ClassifierTypeParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915679142F42C4CB00178D7B /* ClassifierTypeParameters.swift */; };
-		915679172F43B77F00178D7B /* NumberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915679162F43B77F00178D7B /* NumberTextField.swift */; };
-		915679192F43B78E00178D7B /* LabeledNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915679182F43B78E00178D7B /* LabeledNumberField.swift */; };
-		915679242F43F1FC00178D7B /* ClassifierResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915679232F43F1F800178D7B /* ClassifierResultView.swift */; };
-		915679262F43FBEC00178D7B /* GANViewParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915679252F43FBEC00178D7B /* GANViewParameters.swift */; };
-		915679282F43FC2300178D7B /* GANResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915679272F43FC1E00178D7B /* GANResultView.swift */; };
-		9156792A2F44048F00178D7B /* RNNResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915679292F44048F00178D7B /* RNNResultView.swift */; };
-		9156792C2F4404B300178D7B /* RNNViewParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9156792B2F4404B300178D7B /* RNNViewParameters.swift */; };
-		9192364F2F469F940045579B /* Neuron in Frameworks */ = {isa = PBXBuildFile; productRef = 9192364E2F469F940045579B /* Neuron */; };
-		919236522F46A0840045579B /* Neuron in Frameworks */ = {isa = PBXBuildFile; productRef = 919236512F46A0840045579B /* Neuron */; };
-		9AB0CEDB21152A2ACB8C90BD /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DC444CA08182E297018577 /* Builder.swift */; };
-		AF8F96BD6C1250965A191778 /* LauncherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402CBEDBBB947EADC8B9A620 /* LauncherView.swift */; };
-		B89ABC4EE48D679A98AE73ED /* Numerics in Frameworks */ = {isa = PBXBuildFile; productRef = 6894DA24D67798910C074554 /* Numerics */; };
-		C0B05326883CD936CADED994 /* NSImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2423A1DB9E57F52EB55019 /* NSImage+Extensions.swift */; };
-		CAC7BE7B5983E3220B6B882A /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = 250AAE4E7F3F3BC120E440DB /* Logger */; };
-		E2E3745717030D907A01B126 /* ImageVisualizationLayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E9F824375954B08382CCEF /* ImageVisualizationLayerNode.swift */; };
-		EF4049404DD308AD13B7C5F6 /* VisualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8745FF3651F6453E173BB3C8 /* VisualizerView.swift */; };
-		EFE6F721E18177AC13B60CCA /* NumSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4AE5BAC685A5C1B40D0B72DB /* NumSwift */; };
+		914916BC2F4BE850001B998C /* Neuron in Frameworks */ = {isa = PBXBuildFile; productRef = 914916BB2F4BE850001B998C /* Neuron */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		050C5101DF037260F0624AED /* ImageDropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDropView.swift; sourceTree = "<group>"; };
-		402CBEDBBB947EADC8B9A620 /* LauncherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauncherView.swift; sourceTree = "<group>"; };
-		42194846783E2358C1D2377F /* DetailedLayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedLayerNode.swift; sourceTree = "<group>"; };
-		5A31376B7E21DA34F200AE78 /* ModelPlaygroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPlaygroundView.swift; sourceTree = "<group>"; };
-		6F6CAEFC3307FB3FF377C9EC /* InputLayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputLayerNode.swift; sourceTree = "<group>"; };
-		72EA4B8C35CA70BEB2D86A85 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
-		748C98397BF1EA837FB8FD13 /* DetailedActivationLayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedActivationLayerNode.swift; sourceTree = "<group>"; };
-		8745FF3651F6453E173BB3C8 /* VisualizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizerView.swift; sourceTree = "<group>"; };
-		89F443F25EA65562F621401E /* ModelDropViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDropViewModel.swift; sourceTree = "<group>"; };
-		9133B6C72F3E17C900F7D0A5 /* SeededRandomNumberGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeededRandomNumberGenerator.swift; sourceTree = "<group>"; };
-		9133B6C92F3E7B7400F7D0A5 /* SVGExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGExporter.swift; sourceTree = "<group>"; };
-		9133B6E32F3FD07600F7D0A5 /* DragModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragModelView.swift; sourceTree = "<group>"; };
-		9133B6E62F3FD1C600F7D0A5 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		9133B6E82F3FD7C500F7D0A5 /* PNGExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNGExporter.swift; sourceTree = "<group>"; };
-		9133B6EB2F4146E100F7D0A5 /* QuantizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantizerView.swift; sourceTree = "<group>"; };
-		9156790B2F42A5FF00178D7B /* DropdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownView.swift; sourceTree = "<group>"; };
-		915679122F42C4C000178D7B /* ModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelType.swift; sourceTree = "<group>"; };
-		915679142F42C4CB00178D7B /* ClassifierTypeParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifierTypeParameters.swift; sourceTree = "<group>"; };
-		915679162F43B77F00178D7B /* NumberTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTextField.swift; sourceTree = "<group>"; };
-		915679182F43B78E00178D7B /* LabeledNumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledNumberField.swift; sourceTree = "<group>"; };
-		915679232F43F1F800178D7B /* ClassifierResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifierResultView.swift; sourceTree = "<group>"; };
-		915679252F43FBEC00178D7B /* GANViewParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GANViewParameters.swift; sourceTree = "<group>"; };
-		915679272F43FC1E00178D7B /* GANResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GANResultView.swift; sourceTree = "<group>"; };
-		915679292F44048F00178D7B /* RNNResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNNResultView.swift; sourceTree = "<group>"; };
-		9156792B2F4404B300178D7B /* RNNViewParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNNViewParameters.swift; sourceTree = "<group>"; };
-		965FFCCD3FA3887EFFD570EF /* NeuronTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeuronTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1EA22931E3BB30FC77EDBDF /* NeuronToolsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuronToolsApp.swift; sourceTree = "<group>"; };
-		B1F5A9E047FC6B95E7BC9042 /* ToolDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolDefinition.swift; sourceTree = "<group>"; };
-		B7E9F824375954B08382CCEF /* ImageVisualizationLayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageVisualizationLayerNode.swift; sourceTree = "<group>"; };
-		D13C1306CED2048B15E55295 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
-		D8E86A2F805E4BAE9EF7DD97 /* ModelDropModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDropModule.swift; sourceTree = "<group>"; };
-		D9DC444CA08182E297018577 /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
-		EAF0106CE68B5898E33D68D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		EC2423A1DB9E57F52EB55019 /* NSImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+Extensions.swift"; sourceTree = "<group>"; };
-		F895F598135785693E38D477 /* ImageDropModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDropModule.swift; sourceTree = "<group>"; };
+		914916582F4BE7F6001B998C /* NeuronTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeuronTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		9149165A2F4BE7F6001B998C /* NeuronTools */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = NeuronTools;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
-		AC9AA04C10659CE2C1B3A223 /* Frameworks */ = {
+		914916552F4BE7F6001B998C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				919236522F46A0840045579B /* Neuron in Frameworks */,
-				EFE6F721E18177AC13B60CCA /* NumSwift in Frameworks */,
-				9192364F2F469F940045579B /* Neuron in Frameworks */,
-				CAC7BE7B5983E3220B6B882A /* Logger in Frameworks */,
-				B89ABC4EE48D679A98AE73ED /* Numerics in Frameworks */,
+				914916BC2F4BE850001B998C /* Neuron in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		07043D9964E596BA4B6B2CF2 = {
+		9149164F2F4BE7F6001B998C = {
 			isa = PBXGroup;
 			children = (
-				DDF572EE81EF85EE304A973D /* NeuronTools */,
-				422C0803F9DA34BCE707BE02 /* Products */,
+				9149165A2F4BE7F6001B998C /* NeuronTools */,
+				914916592F4BE7F6001B998C /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		19C76003606C7F539F3CC833 /* Utilities */ = {
+		914916592F4BE7F6001B998C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9133B6C72F3E17C900F7D0A5 /* SeededRandomNumberGenerator.swift */,
-				EC2423A1DB9E57F52EB55019 /* NSImage+Extensions.swift */,
-				9133B6C92F3E7B7400F7D0A5 /* SVGExporter.swift */,
-				9133B6E82F3FD7C500F7D0A5 /* PNGExporter.swift */,
-			);
-			path = Utilities;
-			sourceTree = "<group>";
-		};
-		2BE8D8FED7273DF57B038D78 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				402CBEDBBB947EADC8B9A620 /* LauncherView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		2EDE5F6E064088CD5CE2FFAB /* Modules */ = {
-			isa = PBXGroup;
-			children = (
-				D9DC444CA08182E297018577 /* Builder.swift */,
-				F895F598135785693E38D477 /* ImageDropModule.swift */,
-				050C5101DF037260F0624AED /* ImageDropView.swift */,
-			);
-			path = Modules;
-			sourceTree = "<group>";
-		};
-		422C0803F9DA34BCE707BE02 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				965FFCCD3FA3887EFFD570EF /* NeuronTools.app */,
+				914916582F4BE7F6001B998C /* NeuronTools.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		44A870CD79CD3A18502E626A /* Nodes */ = {
-			isa = PBXGroup;
-			children = (
-				748C98397BF1EA837FB8FD13 /* DetailedActivationLayerNode.swift */,
-				42194846783E2358C1D2377F /* DetailedLayerNode.swift */,
-				D13C1306CED2048B15E55295 /* GraphView.swift */,
-				B7E9F824375954B08382CCEF /* ImageVisualizationLayerNode.swift */,
-				6F6CAEFC3307FB3FF377C9EC /* InputLayerNode.swift */,
-				72EA4B8C35CA70BEB2D86A85 /* Node.swift */,
-			);
-			path = Nodes;
-			sourceTree = "<group>";
-		};
-		907C1E43065A40A49FAAE0BC /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-				9133B6E22F3FD06C00F7D0A5 /* Views */,
-				D8E86A2F805E4BAE9EF7DD97 /* ModelDropModule.swift */,
-				89F443F25EA65562F621401E /* ModelDropViewModel.swift */,
-				2EDE5F6E064088CD5CE2FFAB /* Modules */,
-				44A870CD79CD3A18502E626A /* Nodes */,
-				19C76003606C7F539F3CC833 /* Utilities */,
-			);
-			path = Shared;
-			sourceTree = "<group>";
-		};
-		9133B6BF2F3E15D000F7D0A5 /* ModelPlayground */ = {
-			isa = PBXGroup;
-			children = (
-				915679252F43FBEC00178D7B /* GANViewParameters.swift */,
-				9156792B2F4404B300178D7B /* RNNViewParameters.swift */,
-				915679142F42C4CB00178D7B /* ClassifierTypeParameters.swift */,
-				915679122F42C4C000178D7B /* ModelType.swift */,
-				9133B6C32F3E15FD00F7D0A5 /* Views */,
-			);
-			path = ModelPlayground;
-			sourceTree = "<group>";
-		};
-		9133B6C02F3E15D700F7D0A5 /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-				9133B6EA2F4146D000F7D0A5 /* Quantizer */,
-				9133B6C42F3E160500F7D0A5 /* Visualizer */,
-				9133B6BF2F3E15D000F7D0A5 /* ModelPlayground */,
-			);
-			path = Tools;
-			sourceTree = "<group>";
-		};
-		9133B6C32F3E15FD00F7D0A5 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				915679292F44048F00178D7B /* RNNResultView.swift */,
-				915679272F43FC1E00178D7B /* GANResultView.swift */,
-				915679232F43F1F800178D7B /* ClassifierResultView.swift */,
-				5A31376B7E21DA34F200AE78 /* ModelPlaygroundView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		9133B6C42F3E160500F7D0A5 /* Visualizer */ = {
-			isa = PBXGroup;
-			children = (
-				9133B6C52F3E160D00F7D0A5 /* Views */,
-			);
-			path = Visualizer;
-			sourceTree = "<group>";
-		};
-		9133B6C52F3E160D00F7D0A5 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				8745FF3651F6453E173BB3C8 /* VisualizerView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		9133B6E22F3FD06C00F7D0A5 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				915679182F43B78E00178D7B /* LabeledNumberField.swift */,
-				915679162F43B77F00178D7B /* NumberTextField.swift */,
-				9156790B2F42A5FF00178D7B /* DropdownView.swift */,
-				9133B6E32F3FD07600F7D0A5 /* DragModelView.swift */,
-				9133B6E52F3FD1A600F7D0A5 /* Components */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		9133B6E52F3FD1A600F7D0A5 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				9133B6E62F3FD1C600F7D0A5 /* CardView.swift */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
-		9133B6EA2F4146D000F7D0A5 /* Quantizer */ = {
-			isa = PBXGroup;
-			children = (
-				9133B6EC2F4146E100F7D0A5 /* Views */,
-			);
-			path = Quantizer;
-			sourceTree = "<group>";
-		};
-		9133B6EC2F4146E100F7D0A5 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				9133B6EB2F4146E100F7D0A5 /* QuantizerView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		98B146CA6337FEDBECCECD8F /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				B1F5A9E047FC6B95E7BC9042 /* ToolDefinition.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		D03DE0F41EF97487E370DA0F /* App */ = {
-			isa = PBXGroup;
-			children = (
-				A1EA22931E3BB30FC77EDBDF /* NeuronToolsApp.swift */,
-			);
-			path = App;
-			sourceTree = "<group>";
-		};
-		DDF572EE81EF85EE304A973D /* NeuronTools */ = {
-			isa = PBXGroup;
-			children = (
-				9133B6C02F3E15D700F7D0A5 /* Tools */,
-				EAF0106CE68B5898E33D68D8 /* Info.plist */,
-				D03DE0F41EF97487E370DA0F /* App */,
-				98B146CA6337FEDBECCECD8F /* Models */,
-				907C1E43065A40A49FAAE0BC /* Shared */,
-				2BE8D8FED7273DF57B038D78 /* Views */,
-			);
-			name = NeuronTools;
-			path = Sources/NeuronTools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		920AC19AC2FC22DD140621A4 /* NeuronTools */ = {
+		914916572F4BE7F6001B998C /* NeuronTools */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 42355311F965A3D4DCA132A6 /* Build configuration list for PBXNativeTarget "NeuronTools" */;
+			buildConfigurationList = 914916632F4BE7F6001B998C /* Build configuration list for PBXNativeTarget "NeuronTools" */;
 			buildPhases = (
-				B82D58DE204FEAED00E720D0 /* Sources */,
-				AC9AA04C10659CE2C1B3A223 /* Frameworks */,
+				914916542F4BE7F6001B998C /* Sources */,
+				914916552F4BE7F6001B998C /* Frameworks */,
+				914916562F4BE7F6001B998C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				9149165A2F4BE7F6001B998C /* NeuronTools */,
+			);
 			name = NeuronTools;
 			packageProductDependencies = (
-				4AE5BAC685A5C1B40D0B72DB /* NumSwift */,
-				250AAE4E7F3F3BC120E440DB /* Logger */,
-				6894DA24D67798910C074554 /* Numerics */,
-				9192364E2F469F940045579B /* Neuron */,
-				919236512F46A0840045579B /* Neuron */,
+				914916BB2F4BE850001B998C /* Neuron */,
 			);
 			productName = NeuronTools;
-			productReference = 965FFCCD3FA3887EFFD570EF /* NeuronTools.app */;
+			productReference = 914916582F4BE7F6001B998C /* NeuronTools.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		BBA1929F9580BA786814B1F9 /* Project object */ = {
+		914916502F4BE7F6001B998C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 1600;
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2630;
+				LastUpgradeCheck = 2630;
+				TargetAttributes = {
+					914916572F4BE7F6001B998C = {
+						CreatedOnToolsVersion = 26.3;
+					};
+				};
 			};
-			buildConfigurationList = CC586D44E75B61661B76955D /* Build configuration list for PBXProject "NeuronTools" */;
-			compatibilityVersion = "Xcode 14.0";
+			buildConfigurationList = 914916532F4BE7F6001B998C /* Build configuration list for PBXProject "NeuronTools" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				Base,
 				en,
+				Base,
 			);
-			mainGroup = 07043D9964E596BA4B6B2CF2;
+			mainGroup = 9149164F2F4BE7F6001B998C;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				B84F10030E8D6328E24E9A11 /* XCRemoteSwiftPackageReference "Logger" */,
-				596E79F2B02920D9710A8A49 /* XCRemoteSwiftPackageReference "NumSwift" */,
-				0622AA4310071A56B4A5755E /* XCRemoteSwiftPackageReference "swift-numerics" */,
-				919236502F46A0840045579B /* XCRemoteSwiftPackageReference "Neuron" */,
+				914916BA2F4BE850001B998C /* XCRemoteSwiftPackageReference "Neuron" */,
 			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 914916592F4BE7F6001B998C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				920AC19AC2FC22DD140621A4 /* NeuronTools */,
+				914916572F4BE7F6001B998C /* NeuronTools */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		914916562F4BE7F6001B998C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		B82D58DE204FEAED00E720D0 /* Sources */ = {
+		914916542F4BE7F6001B998C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9156790C2F42A60300178D7B /* DropdownView.swift in Sources */,
-				915679192F43B78E00178D7B /* LabeledNumberField.swift in Sources */,
-				9133B6E92F3FD7C500F7D0A5 /* PNGExporter.swift in Sources */,
-				915679262F43FBEC00178D7B /* GANViewParameters.swift in Sources */,
-				9133B6E42F3FD07600F7D0A5 /* DragModelView.swift in Sources */,
-				9AB0CEDB21152A2ACB8C90BD /* Builder.swift in Sources */,
-				5D876D305D0D45D804ECE49B /* DetailedActivationLayerNode.swift in Sources */,
-				869DC47A71C627741795F0D0 /* DetailedLayerNode.swift in Sources */,
-				915679132F42C4C000178D7B /* ModelType.swift in Sources */,
-				915679282F43FC2300178D7B /* GANResultView.swift in Sources */,
-				382DFF831EBBCE85D9BD033D /* GraphView.swift in Sources */,
-				915679152F42C4CB00178D7B /* ClassifierTypeParameters.swift in Sources */,
-				9133B6CA2F3E7B7400F7D0A5 /* SVGExporter.swift in Sources */,
-				1B0D0AA30CC6B37443F90BC4 /* ModelDropModule.swift in Sources */,
-				9133B6E72F3FD1C600F7D0A5 /* CardView.swift in Sources */,
-				9133B6C82F3E17C900F7D0A5 /* SeededRandomNumberGenerator.swift in Sources */,
-				9156792C2F4404B300178D7B /* RNNViewParameters.swift in Sources */,
-				312A83320A198983BAFA395C /* ModelDropViewModel.swift in Sources */,
-				9133B6ED2F4146E100F7D0A5 /* QuantizerView.swift in Sources */,
-				9156792A2F44048F00178D7B /* RNNResultView.swift in Sources */,
-				024B12E7DE608BD6C8DD91B5 /* ImageDropModule.swift in Sources */,
-				8A4D6C089357AF4612CCEFD4 /* ImageDropView.swift in Sources */,
-				E2E3745717030D907A01B126 /* ImageVisualizationLayerNode.swift in Sources */,
-				069FCD35B9CE2A897EF604E8 /* InputLayerNode.swift in Sources */,
-				AF8F96BD6C1250965A191778 /* LauncherView.swift in Sources */,
-				8A67C25EA11E8202779CB71B /* ModelPlaygroundView.swift in Sources */,
-				C0B05326883CD936CADED994 /* NSImage+Extensions.swift in Sources */,
-				9112ED8D81106C8EE39E92E4 /* NeuronToolsApp.swift in Sources */,
-				915679172F43B77F00178D7B /* NumberTextField.swift in Sources */,
-				316C16E125B5C41528F25EEC /* Node.swift in Sources */,
-				915679242F43F1FC00178D7B /* ClassifierResultView.swift in Sources */,
-				07BB1A27062FC294E4A69E4A /* ToolDefinition.swift in Sources */,
-				EF4049404DD308AD13B7C5F6 /* VisualizerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		63F84464AB1D673FB72A339D /* Debug */ = {
+		914916612F4BE7F6001B998C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -427,13 +171,14 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"$(inherited)",
 					"DEBUG=1",
+					"$(inherited)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -441,26 +186,25 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		89F61BEA8A9AD6D531271018 /* Release */ = {
+		914916622F4BE7F6001B998C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -490,7 +234,8 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -498,94 +243,102 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		914916642F4BE7F6001B998C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wvabrinskas.NeuronTools;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		914916652F4BE7F6001B998C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wvabrinskas.NeuronTools;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
-		9620B8C84A2D656B782EA907 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = Sources/NeuronTools/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 15.6;
-				PRODUCT_BUNDLE_IDENTIFIER = com.wvabrinskas.NeuronTools;
-				PRODUCT_NAME = NeuronTools;
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.10;
-			};
-			name = Release;
-		};
-		9F3A4AEDA63FBC472DDE88E2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = Sources/NeuronTools/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 15.6;
-				PRODUCT_BUNDLE_IDENTIFIER = com.wvabrinskas.NeuronTools;
-				PRODUCT_NAME = NeuronTools;
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.10;
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		42355311F965A3D4DCA132A6 /* Build configuration list for PBXNativeTarget "NeuronTools" */ = {
+		914916532F4BE7F6001B998C /* Build configuration list for PBXProject "NeuronTools" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9F3A4AEDA63FBC472DDE88E2 /* Debug */,
-				9620B8C84A2D656B782EA907 /* Release */,
+				914916612F4BE7F6001B998C /* Debug */,
+				914916622F4BE7F6001B998C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
-		CC586D44E75B61661B76955D /* Build configuration list for PBXProject "NeuronTools" */ = {
+		914916632F4BE7F6001B998C /* Build configuration list for PBXNativeTarget "NeuronTools" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				63F84464AB1D673FB72A339D /* Debug */,
-				89F61BEA8A9AD6D531271018 /* Release */,
+				914916642F4BE7F6001B998C /* Debug */,
+				914916652F4BE7F6001B998C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0622AA4310071A56B4A5755E /* XCRemoteSwiftPackageReference "swift-numerics" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-numerics";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		596E79F2B02920D9710A8A49 /* XCRemoteSwiftPackageReference "NumSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/wvabrinskas/NumSwift.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-		919236502F46A0840045579B /* XCRemoteSwiftPackageReference "Neuron" */ = {
+		914916BA2F4BE850001B998C /* XCRemoteSwiftPackageReference "Neuron" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/wvabrinskas/Neuron";
 			requirement = {
@@ -593,42 +346,15 @@
 				kind = branch;
 			};
 		};
-		B84F10030E8D6328E24E9A11 /* XCRemoteSwiftPackageReference "Logger" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/wvabrinskas/Logger.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.6;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		250AAE4E7F3F3BC120E440DB /* Logger */ = {
+		914916BB2F4BE850001B998C /* Neuron */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B84F10030E8D6328E24E9A11 /* XCRemoteSwiftPackageReference "Logger" */;
-			productName = Logger;
-		};
-		4AE5BAC685A5C1B40D0B72DB /* NumSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 596E79F2B02920D9710A8A49 /* XCRemoteSwiftPackageReference "NumSwift" */;
-			productName = NumSwift;
-		};
-		6894DA24D67798910C074554 /* Numerics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0622AA4310071A56B4A5755E /* XCRemoteSwiftPackageReference "swift-numerics" */;
-			productName = Numerics;
-		};
-		9192364E2F469F940045579B /* Neuron */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Neuron;
-		};
-		919236512F46A0840045579B /* Neuron */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 919236502F46A0840045579B /* XCRemoteSwiftPackageReference "Neuron" */;
+			package = 914916BA2F4BE850001B998C /* XCRemoteSwiftPackageReference "Neuron" */;
 			productName = Neuron;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = BBA1929F9580BA786814B1F9 /* Project object */;
+	rootObject = 914916502F4BE7F6001B998C /* Project object */;
 }

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Neuron
+import NumSwift
 
 struct ModelPlaygroundView: View {
   @State private var viewModel: ModelDropViewModel

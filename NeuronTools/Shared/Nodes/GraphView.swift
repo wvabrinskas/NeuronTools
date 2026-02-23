@@ -8,6 +8,7 @@
 import SwiftUI
 import Neuron
 import AppKit
+import NumSwift
 
 struct NodePositionPreferenceKey: PreferenceKey {
   static var defaultValue: [UUID: CGRect] = [:]

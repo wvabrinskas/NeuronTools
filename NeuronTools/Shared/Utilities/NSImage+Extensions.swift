@@ -9,6 +9,8 @@ import Neuron
 #if os(macOS)
 import Foundation
 import Cocoa
+import UniformTypeIdentifiers
+import NumSwift
 
 extension Float {
   var bytes: [UInt8] {

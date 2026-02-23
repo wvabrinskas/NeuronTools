@@ -8,6 +8,7 @@
 import AppKit
 import Foundation
 import Neuron
+import UniformTypeIdentifiers
 
 struct SVGExporter {
   let layers: [[Node]]

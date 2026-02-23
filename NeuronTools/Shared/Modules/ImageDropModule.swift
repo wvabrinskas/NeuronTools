@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Neuron
+import UniformTypeIdentifiers
 
 @available(macOS 14, *)
 final class ImageDropModule: DropDelegate {

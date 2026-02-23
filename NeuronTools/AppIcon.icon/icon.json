@@ -1,0 +1,39 @@
+{
+  "fill" : {
+    "linear-gradient" : [
+      "srgb:0.04631,0.51765,0.98824,1.00000",
+      "display-p3:0.07843,0.15497,0.84356,1.00000"
+    ]
+  },
+  "groups" : [
+    {
+      "layers" : [
+        {
+          "image-name" : "NeuronTools-icon.png",
+          "name" : "NeuronTools-icon",
+          "position" : {
+            "scale" : 0.75,
+            "translation-in-points" : [
+              45.28125,
+              -15
+            ]
+          }
+        }
+      ],
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "circles" : [
+      "watchOS"
+    ],
+    "squares" : "shared"
+  }
+}

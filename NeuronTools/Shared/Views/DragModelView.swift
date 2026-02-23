@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
 @_spi(Visualizer) import Neuron
 
 struct DragModelView: View {

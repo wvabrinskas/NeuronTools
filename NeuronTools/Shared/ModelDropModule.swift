@@ -9,6 +9,7 @@ import SwiftUI
 import Neuron
 import NumSwift
 import GameKit
+import UniformTypeIdentifiers
 
 @available(macOS 14, *)
 class ModelDropModule: DropDelegate {
