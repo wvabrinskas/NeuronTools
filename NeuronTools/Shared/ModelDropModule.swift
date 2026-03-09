@@ -17,8 +17,8 @@ class ModelDropModule: DropDelegate {
   private let builder: Builder
 
   private var network: Sequential?
-  private var rnn: RNN<VectorizableDataset<String>>?
-  private var rnnDataset: VectorizableDataset<String>?
+  private var rnn: RNN<VectorizableDataset>?
+  private var rnnDataset: VectorizableDataset?
   
   init(builder: Builder) {
     self.builder = builder
@@ -35,7 +35,7 @@ class ModelDropModule: DropDelegate {
     
     // the input of a GAN generator should be the noise vector
     let noiseCount = firstLayerSize.columns * firstLayerSize.rows * firstLayerSize.depth
-    let noise = randomInput(noiseCount: noiseCount).storage
+    let noise = randomInput(noiseCount: noiseCount).asArray
     let noiseTensor = Tensor(noise, size: firstLayerSize)
     
     guard let results = network?.predict(batch: [noiseTensor],
@@ -97,13 +97,13 @@ class ModelDropModule: DropDelegate {
   }
 
   func buildTokens(_ data: Data?) async throws  {
-    guard let data, (try? JSONDecoder().decode(Vectorizer<String>.self, from: data)) != nil else {
+    guard let data, (try? JSONDecoder().decode(Vectorizer.self, from: data)) != nil else {
       return
     }
     
-    let tokenResult: TokenBuilderResult<String> = try await builder.buildTokens(data)
+    let tokenResult: TokenBuilderResult = try await builder.buildTokens(data)
     
-    let rnnDataset: VectorizableDataset<String> = .init(vectorizer: tokenResult.vectorizer)
+    let rnnDataset: VectorizableDataset = .init(vectorizer: tokenResult.vectorizer)
     
     rnn = .init(dataset: rnnDataset,
                 classifierParameters: .init(batchSize: 1, epochs: 1),

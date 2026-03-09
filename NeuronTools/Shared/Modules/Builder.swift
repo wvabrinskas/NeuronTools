@@ -13,8 +13,8 @@ struct BuilderResult {
   var network: Sequential
 }
 
-struct TokenBuilderResult<T: VectorizableItem> {
-  var vectorizer: Vectorizer<T>
+struct TokenBuilderResult {
+  var vectorizer: Vectorizer
 }
 
 final class Builder {
@@ -32,10 +32,10 @@ final class Builder {
     }
   }
   
-  func buildTokens<T: VectorizableItem>(_ data: Data) async throws -> TokenBuilderResult<T> {
+  func buildTokens(_ data: Data) async throws -> TokenBuilderResult {
     return try await withUnsafeThrowingContinuation { continuation in
       Task.detached(priority: .userInitiated) {
-        let vectorizer: Vectorizer<T> = .import(data)
+        let vectorizer: Vectorizer = .import(data)
         continuation.resume(returning: .init(vectorizer: vectorizer))
       }
     }

@@ -25,16 +25,7 @@ struct RNNResultView: View {
         .frame(maxHeight: 300)
       }
       
-      Button(action: {
-        onGenerate()
-      }) {
-        Label("Generate", systemImage: "wand.and.sparkles")
-          .font(.system(size: 30, weight: .semibold))
-          .padding(4)
-      }
-      .focusEffectDisabled()
-      .buttonStyle(.accessoryBarAction)
-      .tint(Color(red: 0.3, green: 0.6, blue: 0.5))
+      GenerateButton(onGenerate: onGenerate)
     }
     .padding(16)
   }
