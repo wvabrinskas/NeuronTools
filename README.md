@@ -27,7 +27,7 @@ An interactive environment for experimenting with Neuron models. Supports three 
 - **RNN** — Drag-and-drop a `.smodel` and a `.stokens` file, then generate text sequences from a starting character with configurable generation count and max word length.
 
 ### ⚖️ Quantizer
-Import a Neuron model to inspect and quantize it. Displays model output (debug description) alongside the network graph view. Useful for understanding model size and structure prior to quantization.
+[WIP][Not usable] Will be used to convert a model between numerical types.
 
 ## Dependencies
 
